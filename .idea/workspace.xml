@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="09733092-434e-4c22-b3e2-30e9499601e8" name="Changes" comment="Commit gitignore">
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Interfaces/ISetContainers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Providers/Getters/ContainerGetter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Providers/Setters/ContainerSetter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Mocks/ContainerGetterMock.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Mocks/ContainerSetterMock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/AbstractDomain.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/AbstractDomain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/FileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/ContainerManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/IFetchContainers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/IGetContainers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Providers/AbstractProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Providers/AbstractAccessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/Domains/AbstractDomainTester.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/AbstractDomainTester.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/Domains/FileManagerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2WzG6eRfxq1MExMqNIjQj2Nnwbg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Providers/Setters" />
+      <recent name="$PROJECT_DIR$/src/Providers/Getters" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/Domains" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ContainerManagerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner class="OvhSwift\Tests\Domains\ContainerManagerTest" coverage_engine="PHPDBG" file="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.ContainerManagerTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="09733092-434e-4c22-b3e2-30e9499601e8" name="Changes" comment="" />
+      <created>1697727820694</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697727820694</updated>
+      <workItem from="1697727822640" duration="16019000" />
+    </task>
+    <task id="LOCAL-00001" summary="Init commit">
+      <created>1697727989013</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697727989013</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Initial architecture created">
+      <created>1697728861165</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1697728861165</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Initial architecture created (WIP)">
+      <created>1697738801924</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1697738801924</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added psr-4 dev autoloader">
+      <created>1697740470731</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697740470731</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Commit gitignore">
+      <created>1697740489960</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697740489960</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init commit" />
+    <MESSAGE value="Initial architecture created" />
+    <MESSAGE value="Initial architecture created (WIP)" />
+    <MESSAGE value="Added psr-4 dev autoloader" />
+    <MESSAGE value="Commit gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit gitignore" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
