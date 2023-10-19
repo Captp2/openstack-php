@@ -8,6 +8,11 @@
             "OvhSwift\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "OvhSwift\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Captp",

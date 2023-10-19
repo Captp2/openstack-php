@@ -2,7 +2,7 @@
 
 namespace OvhSwift\Providers;
 
-final class AbstractProvider
+class AbstractAccessor
 {
 
 }
