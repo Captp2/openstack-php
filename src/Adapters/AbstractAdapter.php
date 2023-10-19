@@ -1,3 +1,0 @@
-<?php
-
-namespace OvhSwift\Adapters;
