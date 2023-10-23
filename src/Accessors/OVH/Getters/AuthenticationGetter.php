@@ -27,6 +27,8 @@ class AuthenticationGetter extends AbstractAccessor implements IGetAuthenticatio
     public function getAuthentication(): Authentication
     {
         $request = $this->guzzleClient->request('POST', self::AUTH_URI, ['json' => $this->getBody()]);
+        $requestBody = $request->getBody();
+        var_dump($requestBody);
 
         return new Authentication(['token' => $request->getHeaderLine('x-subject-token')]);
     }

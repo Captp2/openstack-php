@@ -3,6 +3,8 @@
 namespace OvhSwift\Tests\Domains;
 
 use OvhSwift\Domains\ContainerManager;
+use OvhSwift\Entities\Authentication;
+use OvhSwift\Tests\Mocks\Getters\AuthenticationGetterMock;
 use OvhSwift\Tests\Mocks\Getters\ContainerGetterMock;
 use OvhSwift\Tests\Mocks\Setters\ContainerSetterMock;
 

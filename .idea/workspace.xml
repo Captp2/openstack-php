@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="Added .idea to gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Accessors/Getters/ContainerGetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/Getters/ContainerGetter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Accessors/OVH/Getters/AuthenticationGetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/OVH/Getters/AuthenticationGetter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domains/ContainerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/ContainerManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/AbstractEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/AbstractEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/Authentication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Authentication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/Getters/IGetContainers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/Getters/IGetContainers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Mocks/Getters/AuthenticationGetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/Getters/AuthenticationGetterMock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Mocks/Getters/ContainerGetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/Getters/ContainerGetterMock.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698067731067</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added .idea to gitignore">
+      <created>1698068152059</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698068152059</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +238,8 @@
     <MESSAGE value="Forgotten file" />
     <MESSAGE value="Commit .idea" />
     <MESSAGE value="SPI tests O.K !" />
-    <option name="LAST_COMMIT_MESSAGE" value="SPI tests O.K !" />
+    <MESSAGE value="Added .idea to gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added .idea to gitignore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

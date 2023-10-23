@@ -2,7 +2,9 @@
 
 namespace OvhSwift\Interfaces\Getters;
 
+use OvhSwift\Entities\Authentication;
+
 Interface IGetContainers
 {
-    public function listContainers(): array;
+    public function listContainers(Authentication $authentication): array;
 }

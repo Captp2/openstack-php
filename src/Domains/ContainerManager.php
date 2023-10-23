@@ -14,7 +14,9 @@ class ContainerManager extends AbstractDomain
      */
     public function listContainers(): array
     {
-        return $this->getter->listContainers();
+        $authentication = (new Authenticator())->login();
+
+        return $this->getter->listContainers($authentication);
     }
 
     /**
