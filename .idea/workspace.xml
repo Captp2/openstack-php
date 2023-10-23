@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="Small refacto">
-      <change afterPath="$PROJECT_DIR$/src/Accessors/OVH/Getters/FileGetter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Accessors/OVH/Setters/FileSetter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domains/FileManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/RessourceNotFoundException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Interfaces/Getters/IGetFiles.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Interfaces/Setters/ISetFiles.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Domains/FileManagerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Mocks/Getters/FileGetterMock.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Mocks/Setters/FileSetterMock.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ovh-swift.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ovh-swift.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="Domain and mock done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/ContainerManagerGetterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/ContainerManagerGetterTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domains/FileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/FileManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Domains/FileManagerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/FileManagerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698071060166</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Domain and mock done">
+      <created>1698083327427</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1698083327427</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +257,8 @@
     <MESSAGE value="SPI tests O.K !" />
     <MESSAGE value="Added .idea to gitignore" />
     <MESSAGE value="Small refacto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small refacto" />
+    <MESSAGE value="Domain and mock done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Domain and mock done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

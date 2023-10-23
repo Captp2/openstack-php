@@ -25,4 +25,13 @@ class FileManagerTest extends AbstractDomainTester
         $this->assertEquals(FileGetterMock::FILE_ID, $file->id);
         $this->assertEquals(FileGetterMock::FILE_PATH, $file->filePath);
     }
+
+    /**
+     * @return void
+     */
+    public function testICantFindAFileByName()
+    {
+        $this->expectExceptionMessage("File 1234 not found");
+        $this->domain->findByName('1234');
+    }
 }

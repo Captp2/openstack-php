@@ -2,14 +2,25 @@
 
 namespace OvhSwift\Domains;
 
+use OvhSwift\Entities\File;
+use OvhSwift\Exceptions\RessourceNotFoundException;
 use OvhSwift\Interfaces\Getters\IGetFiles;
 use OvhSwift\Interfaces\Setters\ISetFiles;
 
 class FileManager extends AbstractDomain
 {
-    public function findByName(string $fileName)
+    /**
+     * @param string $fileName
+     * @return mixed
+     * @throws RessourceNotFoundException
+     */
+    public function findByName(string $fileName): File
     {
-        return $this->getter->getFileByName($fileName);
+        if(!$file = $this->getter->getFileByName($fileName)) {
+            throw new RessourceNotFoundException("File {$fileName} not found");
+        }
+
+        return $file;
     }
 
     /**
