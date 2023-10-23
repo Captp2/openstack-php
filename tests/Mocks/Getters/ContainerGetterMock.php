@@ -1,9 +1,9 @@
 <?php
 
-namespace OvhSwift\Tests\Mocks;
+namespace OvhSwift\Tests\Mocks\Getters;
 
-use OvhSwift\Interfaces\IGetContainers;
-use OvhSwift\Providers\AbstractAccessor;
+use OvhSwift\Interfaces\Getters\IGetContainers;
+use OvhSwift\Accessors\AbstractAccessor;
 
 class ContainerGetterMock extends AbstractAccessor implements IGetContainers
 {

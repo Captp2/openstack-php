@@ -5,6 +5,9 @@
     <testsuite name="Domain">
       <directory>tests/Domains</directory>
     </testsuite>
+    <testsuite name="Accessors">
+      <directory>tests/Accessors</directory>
+    </testsuite>
   </testsuites>
   <source>
     <include>

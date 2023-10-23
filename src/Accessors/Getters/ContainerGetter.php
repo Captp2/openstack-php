@@ -1,9 +1,9 @@
 <?php
 
-namespace OvhSwift\Providers\Getters;
+namespace OvhSwift\Accessors\Getters;
 
-use OvhSwift\Interfaces\IGetContainers;
-use OvhSwift\Providers\AbstractAccessor;
+use OvhSwift\Interfaces\Getters\IGetContainers;
+use OvhSwift\Accessors\AbstractAccessor;
 
 class ContainerGetter extends AbstractAccessor implements IGetContainers
 {

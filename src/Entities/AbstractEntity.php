@@ -2,15 +2,19 @@
 
 namespace OvhSwift\Entities;
 
-abstract class AbstractEntity
+use OvhSwift\App;
+
+abstract class AbstractEntity extends App
 {
     /**
-     * @param array $attributes
+     * @param array|null $attributes
      */
-    public function __construct(array $attributes)
+    public function __construct(array $attributes = null)
     {
-        foreach ($attributes as $name => $value) {
-            $this->$name = $value;
+        if ($attributes) {
+            foreach ($attributes as $name => $value) {
+                $this->$name = $value;
+            }
         }
     }
 }

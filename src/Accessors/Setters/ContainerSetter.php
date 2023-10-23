@@ -1,9 +1,9 @@
 <?php
 
-namespace OvhSwift\Providers\Setters;
+namespace OvhSwift\Accessors\Setters;
 
-use OvhSwift\Interfaces\ISetContainers;
-use OvhSwift\Providers\AbstractAccessor;
+use OvhSwift\Interfaces\Setters\ISetContainers;
+use OvhSwift\Accessors\AbstractAccessor;
 
 class ContainerSetter extends AbstractAccessor implements ISetContainers
 {

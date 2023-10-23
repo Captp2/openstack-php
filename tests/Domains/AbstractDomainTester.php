@@ -2,9 +2,8 @@
 
 namespace OvhSwift\Tests\Domains;
 
-use OvhSwift\Domain\AbstractDomain;
-use OvhSwift\Exceptions\InvalidConfigException;
-use OvhSwift\Providers\AbstractAccessor;
+use OvhSwift\Domains\AbstractDomain;
+use OvhSwift\Accessors\AbstractAccessor;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractDomainTester extends TestCase
@@ -12,16 +11,14 @@ abstract class AbstractDomainTester extends TestCase
     protected AbstractDomain $domain;
     protected AbstractAccessor $accessor;
 
+    protected string $domainName;
+    protected string $getterClass;
+    protected string $setterClass;
+
     public function __construct(string $name)
     {
-        $domainName = $this->getDomainName();
-        $this->domain = new $domainName($this->getGetter(), $this->getSetter());
+        $this->domain = new $this->domainName(new $this->getterClass(), new $this->setterClass());
 
         parent::__construct($name);
     }
-
-    abstract function getDomainName(): string;
-
-    abstract function getGetter(): AbstractAccessor;
-    abstract function getSetter(): AbstractAccessor;
 }

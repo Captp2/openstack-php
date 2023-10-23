@@ -1,9 +1,9 @@
 <?php
 
-namespace OvhSwift\Tests\Mocks;
+namespace OvhSwift\Tests\Mocks\Setters;
 
-use OvhSwift\Interfaces\ISetContainers;
-use OvhSwift\Providers\AbstractAccessor;
+use OvhSwift\Interfaces\Setters\ISetContainers;
+use OvhSwift\Accessors\AbstractAccessor;
 
 class ContainerSetterMock extends AbstractAccessor implements ISetContainers
 {

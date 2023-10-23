@@ -1,30 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09733092-434e-4c22-b3e2-30e9499601e8" name="Changes" comment="Commit gitignore">
-      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Interfaces/ISetContainers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Providers/Getters/ContainerGetter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Providers/Setters/ContainerSetter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Mocks/ContainerGetterMock.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Mocks/ContainerSetterMock.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="09733092-434e-4c22-b3e2-30e9499601e8" name="Changes" comment="Commit .idea">
+      <change afterPath="$PROJECT_DIR$/src/Accessors/AbstractAccessor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Accessors/Getters/AuthenticationGetter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Accessors/OVH/Getters/AuthenticationGetter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Accessors/Setters/AuthenticationSetter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ConfigLoader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domains/Authenticator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entities/Authentication.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Interfaces/Getters/IGetAuthentication.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Interfaces/Setters/ISetAuthentication.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Accessors/AbstractAccessorTester.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/AuthenticationGetterTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Domains/AuthenticatorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Mocks/Getters/AuthenticationGetterMock.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Mocks/Setters/AuthenticationSetterMock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ovh-swift.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ovh-swift.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/AbstractDomain.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/AbstractDomain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/FileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/ContainerManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/IFetchContainers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/IGetContainers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Providers/AbstractProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Providers/AbstractAccessor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/Domains/AbstractDomainTester.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/AbstractDomainTester.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/Domains/FileManagerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/AbstractDomain.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/AbstractDomain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/ContainerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/ContainerManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/AbstractEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/AbstractEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/IGetContainers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/Getters/IGetContainers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/ISetContainers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/Setters/ISetContainers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Providers/AbstractAccessor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Providers/Getters/ContainerGetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/Getters/ContainerGetter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Providers/Setters/ContainerSetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/Setters/ContainerSetter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Domains/AbstractDomainTester.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/AbstractDomainTester.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Mocks/ContainerGetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/Getters/ContainerGetterMock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Mocks/ContainerSetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/Setters/ContainerSetterMock.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
@@ -38,43 +58,97 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="2WzG6eRfxq1MExMqNIjQj2Nnwbg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Providers/Setters" />
-      <recent name="$PROJECT_DIR$/src/Providers/Getters" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/Domains" />
+      <recent name="$PROJECT_DIR$/tests/Accessors/OVH" />
+      <recent name="$PROJECT_DIR$/src/Providers/OVH/Getters" />
+      <recent name="$PROJECT_DIR$/tests/Mocks/Setters" />
+      <recent name="$PROJECT_DIR$/tests/Mocks/Getters" />
+      <recent name="$PROJECT_DIR$/src/Interfaces/Setters" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.AuthenticatorTest">
+    <configuration name="AuthenticatorTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="OvhSwift\Tests\Domains\AuthenticatorTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Domains/AuthenticatorTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
     <configuration name="ContainerManagerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <CommandLine>
         <PhpTestInterpreterSettings>
           <option name="interpreterName" value="PHP" />
         </PhpTestInterpreterSettings>
       </CommandLine>
-      <TestRunner class="OvhSwift\Tests\Domains\ContainerManagerTest" coverage_engine="PHPDBG" file="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" scope="Class" />
+      <TestRunner class="OvhSwift\Tests\Domains\ContainerManagerTest" configuration_file="$PROJECT_DIR$/phpunit.xml" coverage_engine="PHPDBG" file="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.AuthenticatorTest" />
         <item itemvalue="PHPUnit.ContainerManagerTest" />
       </list>
     </recent_temporary>
@@ -87,7 +161,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1697727820694</updated>
-      <workItem from="1697727822640" duration="16019000" />
+      <workItem from="1697727822640" duration="16333000" />
+      <workItem from="1697829318138" duration="9898000" />
+      <workItem from="1698063974018" duration="3094000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1697727989013</created>
@@ -124,7 +200,28 @@
       <option name="project" value="LOCAL" />
       <updated>1697740489960</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Test architecture done !">
+      <created>1697746266013</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697746266013</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Forgotten file">
+      <created>1697746290112</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697746290112</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Commit .idea">
+      <created>1697746329680</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697746329680</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +244,10 @@
     <MESSAGE value="Initial architecture created (WIP)" />
     <MESSAGE value="Added psr-4 dev autoloader" />
     <MESSAGE value="Commit gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit gitignore" />
+    <MESSAGE value="Test architecture done !" />
+    <MESSAGE value="Forgotten file" />
+    <MESSAGE value="Commit .idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit .idea" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

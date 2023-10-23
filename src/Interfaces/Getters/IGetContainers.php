@@ -1,6 +1,6 @@
 <?php
 
-namespace OvhSwift\Interfaces;
+namespace OvhSwift\Interfaces\Getters;
 
 Interface IGetContainers
 {

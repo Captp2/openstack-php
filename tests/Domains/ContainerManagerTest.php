@@ -2,32 +2,18 @@
 
 namespace OvhSwift\Tests\Domains;
 
-use OvhSwift\Domain\ContainerManager;
-use OvhSwift\Providers\AbstractAccessor;
-use OvhSwift\Tests\Mocks\ContainerGetterMock;
-use OvhSwift\Tests\Mocks\ContainerSetterMock;
+use OvhSwift\Domains\ContainerManager;
+use OvhSwift\Tests\Mocks\Getters\ContainerGetterMock;
+use OvhSwift\Tests\Mocks\Setters\ContainerSetterMock;
 
 class ContainerManagerTest extends AbstractDomainTester
 {
-    private string $domainName = ContainerManager::class;
-
-    function getDomainName(): string
-    {
-        return $this->domainName;
-    }
+    protected string $domainName = ContainerManager::class;
+    protected string $getterClass = ContainerGetterMock::class;
+    protected string $setterClass = ContainerSetterMock::class;
 
     public function testIReceiveAnEmptyArray()
     {
         $this->assertEquals([], $this->domain->listContainers());
-    }
-
-    function getGetter(): AbstractAccessor
-    {
-        return new ContainerGetterMock();
-    }
-
-    function getSetter(): AbstractAccessor
-    {
-        return new ContainerSetterMock();
     }
 }
