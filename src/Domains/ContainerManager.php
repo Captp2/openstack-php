@@ -22,22 +22,6 @@ class ContainerManager extends AbstractDomain
     /**
      * @return string
      */
-    protected function getterClass(): string
-    {
-        return ContainerGetter::class;
-    }
-
-    /**
-     * @return string
-     */
-    protected function setterClass(): string
-    {
-        return ContainerSetter::class;
-    }
-
-    /**
-     * @return string
-     */
     protected function getterInterface(): string
     {
         return IGetContainers::class;

@@ -24,17 +24,32 @@ class App
     protected function getOption($path, bool $throwException = true): mixed
     {
         $keys = explode('.', $path);
+        return $this->getNestedOption($keys, $this->config, $throwException);
+    }
 
-        foreach ($keys as $key) {
-            if (isset($this->config[$key])) {
-                return $this->config[$key];
+    /**
+     * @param array $keys
+     * @param array $config
+     * @param bool $throwException
+     * @return mixed
+     * @throws InvalidConfigException
+     */
+    private function getNestedOption(array $keys, array $config, bool $throwException): mixed
+    {
+        $key = array_shift($keys);
+
+        if (!isset($config[$key])) {
+            if ($throwException) {
+                throw new InvalidConfigException("Key {$key} not found in configuration file.");
             } else {
-                if ($throwException) {
-                    throw new InvalidConfigException("{$path} not found in configuration file.");
-                } else {
-                    return null;
-                }
+                return null;
             }
         }
+
+        if (empty($keys)) {
+            return $config[$key];
+        }
+
+        return $this->getNestedOption($keys, $config[$key], $throwException);
     }
 }

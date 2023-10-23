@@ -1,9 +1,9 @@
 <?php
 
-namespace OvhSwift\Accessors\Setters;
+namespace OvhSwift\Accessors\OVH\Setters;
 
-use OvhSwift\Interfaces\Setters\ISetAuthentication;
 use OvhSwift\Accessors\AbstractAccessor;
+use OvhSwift\Interfaces\Setters\ISetAuthentication;
 
 class AuthenticationSetter extends AbstractAccessor implements ISetAuthentication
 {

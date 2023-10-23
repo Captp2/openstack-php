@@ -5,7 +5,7 @@ namespace OvhSwift\Entities;
 class Authentication extends AbstractEntity
 {
     public string $token;
-    public string $containerUrl;
+    public string $swiftUrl;
 
     public function requiredAttributes(): array
     {

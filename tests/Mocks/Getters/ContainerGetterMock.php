@@ -2,6 +2,7 @@
 
 namespace OvhSwift\Tests\Mocks\Getters;
 
+use Generator;
 use OvhSwift\Entities\Authentication;
 use OvhSwift\Interfaces\Getters\IGetContainers;
 use OvhSwift\Accessors\AbstractAccessor;

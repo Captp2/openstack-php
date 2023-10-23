@@ -10,8 +10,6 @@ abstract class AbstractDomain extends App
     protected object $setter;
     protected object $getter;
 
-    abstract protected function getterClass(): string;
-    abstract protected function setterClass(): string;
     abstract protected function getterInterface(): string;
     abstract protected function setterInterface(): string;
 
@@ -23,8 +21,9 @@ abstract class AbstractDomain extends App
     public function __construct(object $getter = null, object $setter = null)
     {
         parent::__construct();
-        $this->getter = $getter ?? new ($this->getterClass());
-        $this->setter = $setter ?? new ($this->setterClass());
+        $accessorsMap = $this->getOption('ovh.accessors.' . static::class);
+        $this->getter = $getter ?? (new $accessorsMap['getter']());
+        $this->setter = $setter ?? (new $accessorsMap['setter']());
 
         $this->validateInstance($this->getter, $this->getterInterface());
         $this->validateInstance($this->setter, $this->setterInterface());

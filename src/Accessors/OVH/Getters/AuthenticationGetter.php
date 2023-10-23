@@ -2,20 +2,23 @@
 
 namespace OvhSwift\Accessors\OVH\Getters;
 
-use GuzzleHttp\Client;
+use JetBrains\PhpStorm\ArrayShape;
 use OvhSwift\Entities\Authentication;
 use OvhSwift\Interfaces\Getters\IGetAuthentication;
 use OvhSwift\Accessors\AbstractAccessor;
+use OvhSwift\Traits\Guzzle;
 
 class AuthenticationGetter extends AbstractAccessor implements IGetAuthentication
 {
-    const AUTH_URI = 'https://auth.cloud.ovh.net/v3/auth/tokens';
+    use Guzzle;
 
-    private Client $guzzleClient;
+    const AUTH_URI = 'https://auth.cloud.ovh.net/v3/auth/tokens';
+    private array $ovhConfig;
 
     public function __construct()
     {
         parent::__construct();
+        $this->ovhConfig = $this->getOption('ovh.config');
         $this->initializeGuzzleClient();
     }
 
@@ -27,19 +30,39 @@ class AuthenticationGetter extends AbstractAccessor implements IGetAuthenticatio
     public function getAuthentication(): Authentication
     {
         $request = $this->guzzleClient->request('POST', self::AUTH_URI, ['json' => $this->getBody()]);
-        $requestBody = $request->getBody();
-        var_dump($requestBody);
+        $requestBody = json_decode($request->getBody()->getContents(), true);
 
-        return new Authentication(['token' => $request->getHeaderLine('x-subject-token')]);
+        return new Authentication(
+            [
+                'token' => $request->getHeaderLine('x-subject-token'),
+                'swiftUrl' => $this->getEndpoint($requestBody['token']['catalog'])
+            ]
+        );
+    }
+
+    /**
+     * @param $catalogs
+     * @return string
+     */
+    private function getEndpoint($catalogs): string
+    {
+        foreach ($catalogs as $catalog) {
+            if ($catalog['name'] === $this->ovhConfig['protocol']) {
+                foreach ($catalog['endpoints'] as $endpoint) {
+                    if ($endpoint['region_id'] === $this->ovhConfig['region']) {
+                        return $endpoint['url'];
+                    }
+                }
+            }
+        }
     }
 
     /**
      * @return array[]
      * @throws \OvhSwift\Exceptions\InvalidConfigException
      */
-    private function getBody(): array
+    #[ArrayShape(['auth' => "array"])] private function getBody(): array
     {
-        $ovhConfig = $this->getOption('ovh');
         return [
             'auth' => [
                 'identity' => [
@@ -48,25 +71,20 @@ class AuthenticationGetter extends AbstractAccessor implements IGetAuthenticatio
                     ],
                     'password' => [
                         'user' => [
-                            'name' => $ovhConfig['username'],
-                            "password" => $ovhConfig['password'],
+                            'name' => $this->ovhConfig['username'],
+                            "password" => $this->ovhConfig['password'],
                             "domain" => [
-                                "id" => $ovhConfig['domain_id']
+                                "id" => $this->ovhConfig['domain_id']
                             ]
                         ]
                     ]
                 ],
                 "scope" => [
                     "project" => [
-                        "id" => $ovhConfig['project_id']
+                        "id" => $this->ovhConfig['project_id']
                     ]
                 ]
             ]
         ];
-    }
-
-    private function initializeGuzzleClient()
-    {
-        $this->guzzleClient = new Client();
     }
 }
