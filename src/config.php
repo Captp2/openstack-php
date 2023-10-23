@@ -2,10 +2,13 @@
 
 use OvhSwift\Accessors\OVH\Getters\AuthenticationGetter;
 use OvhSwift\Accessors\OVH\Getters\ContainerGetter;
+use OvhSwift\Accessors\OVH\Getters\FileGetter;
 use OvhSwift\Accessors\OVH\Setters\AuthenticationSetter;
 use OvhSwift\Accessors\OVH\Setters\ContainerSetter;
+use OvhSwift\Accessors\OVH\Setters\FileSetter;
 use OvhSwift\Domains\Authenticator;
 use OvhSwift\Domains\ContainerManager;
+use OvhSwift\Domains\FileManager;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
@@ -29,6 +32,10 @@ return [
                 'getter' => ContainerGetter::class,
                 'setter' => ContainerSetter::class,
             ],
+            FileManager::class => [
+                'getter' => FileGetter::class,
+                'setter' => FileSetter::class,
+            ]
         ]
     ]
 ];

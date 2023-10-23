@@ -2,33 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="Small refacto">
-      <change afterPath="$PROJECT_DIR$/src/Accessors/OVH/Getters/ContainerGetter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Accessors/OVH/Setters/AuthenticationSetter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Accessors/OVH/Setters/ContainerSetter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traits/Guzzle.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/ContainerManagerGetterTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Accessors/OVH/Getters/FileGetter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Accessors/OVH/Setters/FileSetter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domains/FileManager.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/RessourceNotFoundException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Interfaces/Getters/IGetFiles.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Interfaces/Setters/ISetFiles.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Domains/FileManagerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Mocks/Getters/FileGetterMock.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Mocks/Setters/FileSetterMock.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/ovh-swift.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ovh-swift.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Accessors/Getters/AuthenticationGetter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Accessors/Getters/ContainerGetter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Accessors/OVH/Getters/AuthenticationGetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/OVH/Getters/AuthenticationGetter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Accessors/Setters/AuthenticationSetter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Accessors/Setters/ContainerSetter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domains/AbstractDomain.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/AbstractDomain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domains/Authenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/Authenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domains/ContainerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/ContainerManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Authentication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Authentication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Container.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Container.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/Getters/IGetContainers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/Getters/IGetContainers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/AuthenticationGetterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/AuthenticationGetterTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Mocks/Getters/AuthenticationGetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/Getters/AuthenticationGetterMock.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Mocks/Getters/ContainerGetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/Getters/ContainerGetterMock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/ContainerManagerGetterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/ContainerManagerGetterTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +92,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
     </include_path>
   </component>
   <component name="ProjectId" id="2WzG6eRfxq1MExMqNIjQj2Nnwbg" />
