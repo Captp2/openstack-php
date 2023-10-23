@@ -5,8 +5,6 @@ namespace OvhSwift\Domains;
 use OvhSwift\Entities\Authentication;
 use OvhSwift\Interfaces\Getters\IGetAuthentication;
 use OvhSwift\Interfaces\Setters\ISetAuthentication;
-use OvhSwift\Accessors\Getters\AuthenticationGetter;
-use OvhSwift\Accessors\Setters\AuthenticationSetter;
 
 class Authenticator extends AbstractDomain
 {
@@ -16,22 +14,6 @@ class Authenticator extends AbstractDomain
     public function login(): Authentication
     {
         return $this->getter->getAuthentication();
-    }
-
-    /**
-     * @return string
-     */
-    protected function getterClass(): string
-    {
-        return AuthenticationGetter::class;
-    }
-
-    /**
-     * @return string
-     */
-    protected function setterClass(): string
-    {
-        return AuthenticationSetter::class;
     }
 
     /**

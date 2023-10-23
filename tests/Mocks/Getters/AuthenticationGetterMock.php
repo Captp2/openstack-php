@@ -13,6 +13,6 @@ class AuthenticationGetterMock extends AbstractAccessor implements IGetAuthentic
 
     public function getAuthentication(): Authentication
     {
-        return new Authentication(['token' => self::TOKEN, 'containerUrl' => self::CONTAINER_URL]);
+        return new Authentication(['token' => self::TOKEN, 'swiftUrl' => self::CONTAINER_URL]);
     }
 }

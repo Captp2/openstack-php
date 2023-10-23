@@ -26,5 +26,6 @@ class AuthenticationGetterTest extends AbstractAccessorTester
         $authentication = $this->accessor->getAuthentication();
         $this->assertInstanceOf(Authentication::class, $authentication);
         $this->assertIsString($authentication->token);
+        $this->assertIsString($authentication->swiftUrl);
     }
 }
