@@ -5,6 +5,7 @@ namespace OvhSwift\Tests\Domains;
 use OvhSwift\Domains\FileManager;
 use OvhSwift\Entities\Authentication;
 use OvhSwift\Entities\File;
+use OvhSwift\Exceptions\RessourceNotFoundException;
 use OvhSwift\Tests\Mocks\Getters\FileGetterMock;
 use OvhSwift\Tests\Mocks\Setters\FileSetterMock;
 
@@ -32,7 +33,7 @@ class FileManagerTest extends AbstractDomainTester
      */
     public function testICantFindAFileByName()
     {
-        $this->expectExceptionMessage("File 1234 not found");
+        $this->expectException(RessourceNotFoundException::class);
         $this->domain->findByName('1234');
     }
 }

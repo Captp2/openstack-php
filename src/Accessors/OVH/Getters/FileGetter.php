@@ -22,7 +22,7 @@ class FileGetter extends AbstractAccessor implements IGetFiles
     {
         $request = $this->guzzleClient->request(
             'GET',
-            $authentication->swiftUrl . "/{$containerName}/{$fileName}",
+            $authentication->swiftUrl . "/{$containerName}",
             [
                 'headers' => [
                     'X-Auth-Token' => $authentication->token,
@@ -30,8 +30,18 @@ class FileGetter extends AbstractAccessor implements IGetFiles
                 ]
             ]);
 
+        $files = json_decode($request->getBody()->getContents(), true);
+        foreach ($files as $file) {
+            if ($file['name'] === $fileName) {
+                return new File([
+                    'fileName' => $file['name'],
+                    'filePath' => $authentication->swiftUrl . "/{$containerName}/" . $fileName,
+                    'mimeType' => $file['content_type'],
+                    'size'     => $file['bytes']
+                ]);
+            }
+        }
 
-        $responseItems = json_decode($request->getBody()->getContents(), true);
-        ray($responseItems);
+        return null;
     }
 }

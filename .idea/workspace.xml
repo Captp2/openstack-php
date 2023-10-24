@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="Added testcase for file not found">
-      <change afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/FileManagerGetterTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="Working on file getter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Accessors/OVH/Getters/FileGetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/OVH/Getters/FileGetter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domains/AbstractDomain.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/AbstractDomain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domains/Authenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/Authenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domains/ContainerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/ContainerManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domains/FileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/FileManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/Getters/IGetFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/Getters/IGetFiles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Domains/AuthenticatorTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/File.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/FileManagerGetterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/FileManagerGetterTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Domains/FileManagerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/FileManagerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Mocks/Getters/FileGetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/Getters/FileGetterMock.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +145,7 @@
       <workItem from="1697727822640" duration="16333000" />
       <workItem from="1697829318138" duration="9898000" />
       <workItem from="1698063974018" duration="3207000" />
-      <workItem from="1698104498370" duration="2420000" />
+      <workItem from="1698104498370" duration="8508000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1697727989013</created>
@@ -245,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698083579410</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Working on file getter">
+      <created>1698107114145</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1698107114146</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +276,8 @@
     <MESSAGE value="Small refacto" />
     <MESSAGE value="Domain and mock done" />
     <MESSAGE value="Added testcase for file not found" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added testcase for file not found" />
+    <MESSAGE value="Working on file getter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on file getter" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
