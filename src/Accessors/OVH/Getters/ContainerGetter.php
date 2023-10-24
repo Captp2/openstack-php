@@ -2,11 +2,10 @@
 
 namespace OvhSwift\Accessors\OVH\Getters;
 
-use Generator;
 use OvhSwift\Accessors\AbstractAccessor;
 use OvhSwift\Entities\Authentication;
 use OvhSwift\Entities\Container;
-use OvhSwift\Interfaces\Getters\IGetContainers;
+use OvhSwift\Interfaces\API\Getters\IGetContainers;
 use OvhSwift\Traits\Guzzle;
 
 class ContainerGetter extends AbstractAccessor implements IGetContainers

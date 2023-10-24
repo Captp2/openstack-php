@@ -2,11 +2,13 @@
 
 namespace OvhSwift\Domains;
 
-use OvhSwift\Interfaces\Getters\IGetContainers;
-use OvhSwift\Interfaces\Setters\ISetContainers;
+use OvhSwift\Interfaces\API\Getters\IGetContainers;
+use OvhSwift\Interfaces\API\Setters\ISetContainers;
 
 class ContainerManager extends AbstractDomain
 {
+    protected bool $useSpi = false;
+
     /**
      * @return array
      */

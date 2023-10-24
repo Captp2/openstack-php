@@ -1,6 +1,6 @@
 <?php
 
-namespace OvhSwift\Interfaces\Getters;
+namespace OvhSwift\Interfaces\API\Getters;
 
 use OvhSwift\Entities\Authentication;
 use OvhSwift\Entities\File;

@@ -8,6 +8,7 @@ use OvhSwift\Entities\Authentication;
 class Authenticator
 {
     private static $auth = null;
+    protected bool $useSpi = false;
 
     /**
      * @return Authentication

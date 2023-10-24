@@ -3,11 +3,11 @@
 namespace OvhSwift\Tests\Domains;
 
 use OvhSwift\Domains\FileManager;
-use OvhSwift\Entities\Authentication;
 use OvhSwift\Entities\File;
 use OvhSwift\Exceptions\RessourceNotFoundException;
-use OvhSwift\Tests\Mocks\Getters\FileGetterMock;
-use OvhSwift\Tests\Mocks\Setters\FileSetterMock;
+use OvhSwift\Tests\Mocks\API\Getters\FileGetterMock;
+use OvhSwift\Tests\Mocks\API\Setters\FileSetterMock;
+use OvhSwift\Tests\Mocks\SPI\FileUserMock;
 
 class FileManagerTest extends AbstractDomainTester
 {
@@ -18,9 +18,9 @@ class FileManagerTest extends AbstractDomainTester
     /**
      * @return void
      */
-    public function testICanFindAFileByName()
+    public function testICanFindAFileByName(): void
     {
-        $file = $this->domain->findByName(FileGetterMock::FILE_NAME);
+        $file = $this->getDomain(new FileUserMock())->findByName('test', FileGetterMock::FILE_NAME);
 
         $this->assertInstanceOf(File::class, $file);
         $this->assertEquals(FileGetterMock::FILE_NAME, $file->fileName);
@@ -31,9 +31,9 @@ class FileManagerTest extends AbstractDomainTester
     /**
      * @return void
      */
-    public function testICantFindAFileByName()
+    public function testICantFindAFileByName(): void
     {
         $this->expectException(RessourceNotFoundException::class);
-        $this->domain->findByName('1234');
+        $this->getDomain(new FileUserMock())->findByName('test', '1234');
     }
 }

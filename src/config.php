@@ -9,6 +9,7 @@ use OvhSwift\Accessors\OVH\Setters\FileSetter;
 use OvhSwift\Domains\Authenticator;
 use OvhSwift\Domains\ContainerManager;
 use OvhSwift\Domains\FileManager;
+use OvhSwift\Interfaces\SPI\IUseFiles;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
@@ -22,6 +23,7 @@ return [
             'project_id' => $_ENV['OVH_PROJECT_ID'],
             'domain_id' => $_ENV['OVH_DOMAIN'] ?? 'default',
             'protocol' => $_ENV['OVH_PROTOCOL'] ?? 'swift',
+            'max_file_size' => $_ENV['MAX_FILE_SIZE'] ?? 262144000
         ],
         'accessors' => [
             Authenticator::class => [
@@ -36,6 +38,9 @@ return [
                 'getter' => FileGetter::class,
                 'setter' => FileSetter::class,
             ]
+        ],
+        'spi' => [
+            FileManager::class => IUseFiles::class
         ]
     ]
 ];

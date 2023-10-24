@@ -1,8 +1,7 @@
 <?php
 
-namespace OvhSwift\Interfaces\Getters;
+namespace OvhSwift\Interfaces\API\Getters;
 
-use Generator;
 use OvhSwift\Entities\Authentication;
 
 Interface IGetContainers
