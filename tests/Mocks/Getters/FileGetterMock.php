@@ -4,6 +4,7 @@ namespace OvhSwift\Tests\Mocks\Getters;
 
 use Faker\Factory;
 use OvhSwift\Accessors\AbstractAccessor;
+use OvhSwift\Entities\Authentication;
 use OvhSwift\Entities\File;
 use OvhSwift\Exceptions\RessourceNotFoundException;
 use OvhSwift\Interfaces\Getters\IGetFiles;
@@ -44,7 +45,7 @@ class FileGetterMock extends AbstractAccessor implements IGetFiles
      * @param string $fileName
      * @return File|null
      */
-    public function getFileByName(string $fileName): ?File
+    public function getFileByName(Authentication $authentication, $fileName): ?File
     {
         foreach ($this->mockedFiles as $mockedFile) {
             if ($mockedFile->fileName === $fileName) {

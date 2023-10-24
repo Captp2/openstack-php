@@ -3,6 +3,7 @@
 namespace OvhSwift\Tests\Domains;
 
 use OvhSwift\Domains\FileManager;
+use OvhSwift\Entities\Authentication;
 use OvhSwift\Entities\File;
 use OvhSwift\Tests\Mocks\Getters\FileGetterMock;
 use OvhSwift\Tests\Mocks\Setters\FileSetterMock;

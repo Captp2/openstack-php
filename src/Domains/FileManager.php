@@ -14,10 +14,10 @@ class FileManager extends AbstractDomain
      * @return mixed
      * @throws RessourceNotFoundException
      */
-    public function findByName(string $fileName): File
+    public function findByName(string $containerName, string $fileName): File
     {
-        if(!$file = $this->getter->getFileByName($fileName)) {
-            throw new RessourceNotFoundException("File {$fileName} not found");
+        if(!$file = $this->getter->getFileByName($this->authentication, $containerName, $fileName)) {
+            throw new RessourceNotFoundException("File {$fileName} not found in {$containerName}");
         }
 
         return $file;

@@ -4,8 +4,6 @@ namespace OvhSwift\Domains;
 
 use OvhSwift\Interfaces\Getters\IGetContainers;
 use OvhSwift\Interfaces\Setters\ISetContainers;
-use OvhSwift\Accessors\Getters\ContainerGetter;
-use OvhSwift\Accessors\Setters\ContainerSetter;
 
 class ContainerManager extends AbstractDomain
 {
@@ -14,9 +12,7 @@ class ContainerManager extends AbstractDomain
      */
     public function listContainers(): array
     {
-        $authentication = (new Authenticator())->login();
-
-        return $this->getter->listContainers($authentication);
+        return $this->getter->listContainers($this->authentication);
     }
 
     /**
