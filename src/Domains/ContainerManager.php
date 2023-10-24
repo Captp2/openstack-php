@@ -2,21 +2,19 @@
 
 namespace OvhSwift\Domains;
 
-use OvhSwift\Interfaces\Getters\IGetContainers;
-use OvhSwift\Interfaces\Setters\ISetContainers;
-use OvhSwift\Accessors\Getters\ContainerGetter;
-use OvhSwift\Accessors\Setters\ContainerSetter;
+use OvhSwift\Interfaces\API\Getters\IGetContainers;
+use OvhSwift\Interfaces\API\Setters\ISetContainers;
 
 class ContainerManager extends AbstractDomain
 {
+    protected bool $useSpi = false;
+
     /**
      * @return array
      */
     public function listContainers(): array
     {
-        $authentication = (new Authenticator())->login();
-
-        return $this->getter->listContainers($authentication);
+        return $this->getter->listContainers($this->authentication);
     }
 
     /**

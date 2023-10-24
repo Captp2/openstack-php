@@ -1,6 +1,6 @@
 <?php
 
-namespace OvhSwift\Interfaces\Setters;
+namespace OvhSwift\Interfaces\API\Setters;
 
 Interface ISetContainers
 {

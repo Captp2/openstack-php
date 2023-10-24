@@ -2,33 +2,26 @@
 
 namespace OvhSwift\Domains;
 
+use OvhSwift\Accessors\OVH\Getters\AuthenticationGetter;
 use OvhSwift\Entities\Authentication;
-use OvhSwift\Interfaces\Getters\IGetAuthentication;
-use OvhSwift\Interfaces\Setters\ISetAuthentication;
 
-class Authenticator extends AbstractDomain
+class Authenticator
 {
+    private static $auth = null;
+    protected bool $useSpi = false;
+
     /**
      * @return Authentication
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \OvhSwift\Exceptions\InvalidConfigException
      */
-    public function login(): Authentication
+    public static function login($authenticationGetter = null): Authentication
     {
-        return $this->getter->getAuthentication();
-    }
+        if (self::$auth === null) {
+            $authenticationGetter = $authenticationGetter ?? new AuthenticationGetter();
+            self::$auth = $authenticationGetter->getAuthentication();
+        }
 
-    /**
-     * @return string
-     */
-    protected function getterInterface(): string
-    {
-        return IGetAuthentication::class;
-    }
-
-    /**
-     * @return string
-     */
-    protected function setterInterface(): string
-    {
-        return ISetAuthentication::class;
+        return self::$auth;
     }
 }

@@ -15,10 +15,8 @@ abstract class AbstractDomainTester extends TestCase
     protected string $getterClass;
     protected string $setterClass;
 
-    public function __construct(string $name)
+    public function getDomain(?object $adapterClass = null)
     {
-        $this->domain = new $this->domainName(new $this->getterClass(), new $this->setterClass());
-
-        parent::__construct($name);
+        return new $this->domainName($adapterClass, new $this->getterClass(), new $this->setterClass());
     }
 }

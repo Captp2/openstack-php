@@ -3,12 +3,11 @@
 namespace OvhSwift\Accessors\OVH\Getters;
 
 use JetBrains\PhpStorm\ArrayShape;
-use OvhSwift\Entities\Authentication;
-use OvhSwift\Interfaces\Getters\IGetAuthentication;
 use OvhSwift\Accessors\AbstractAccessor;
+use OvhSwift\Entities\Authentication;
 use OvhSwift\Traits\Guzzle;
 
-class AuthenticationGetter extends AbstractAccessor implements IGetAuthentication
+class AuthenticationGetter extends AbstractAccessor implements \OvhSwift\Interfaces\API\Getters\IGetAuthentication
 {
     use Guzzle;
 

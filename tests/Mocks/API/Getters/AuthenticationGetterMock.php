@@ -1,10 +1,10 @@
 <?php
 
-namespace OvhSwift\Tests\Mocks\Getters;
+namespace OvhSwift\Tests\Mocks\API\Getters;
 
-use OvhSwift\Entities\Authentication;
-use OvhSwift\Interfaces\Getters\IGetAuthentication;
 use OvhSwift\Accessors\AbstractAccessor;
+use OvhSwift\Entities\Authentication;
+use OvhSwift\Interfaces\API\Getters\IGetAuthentication;
 
 class AuthenticationGetterMock extends AbstractAccessor implements IGetAuthentication
 {

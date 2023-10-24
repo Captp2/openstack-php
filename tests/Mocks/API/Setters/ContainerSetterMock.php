@@ -1,11 +1,10 @@
 <?php
 
-namespace OvhSwift\Tests\Mocks\Setters;
+namespace OvhSwift\Tests\Mocks\API\Setters;
 
-use OvhSwift\Interfaces\Setters\ISetContainers;
 use OvhSwift\Accessors\AbstractAccessor;
 
-class ContainerSetterMock extends AbstractAccessor implements ISetContainers
+class ContainerSetterMock extends AbstractAccessor implements \OvhSwift\Interfaces\API\Setters\ISetContainers
 {
     public function createContainer(string $name): void
     {
