@@ -31,8 +31,8 @@ abstract class AbstractDomain extends App
         $this->getter = $getter ?? (new $accessorsMap['getter']());
         $this->setter = $setter ?? (new $accessorsMap['setter']());
 
-        ray($this->useSpi);
         if ($this->useSpi) {
+            $this->spiAdapter = $spiAdapter;
             $this->validateInstance($spiAdapter, $this->getOption('ovh.spi.' . static::class));
         }
         $this->validateInstance($this->getter, $this->getterInterface());

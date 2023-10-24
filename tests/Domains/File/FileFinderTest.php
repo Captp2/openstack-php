@@ -1,20 +1,15 @@
 <?php
 
-namespace OvhSwift\Tests\Domains;
+namespace OvhSwift\Tests\Domains\File;
 
-use OvhSwift\Domains\FileManager;
 use OvhSwift\Entities\File;
 use OvhSwift\Exceptions\RessourceNotFoundException;
+use OvhSwift\Tests\Domains\AbstractDomainTester;
 use OvhSwift\Tests\Mocks\API\Getters\FileGetterMock;
-use OvhSwift\Tests\Mocks\API\Setters\FileSetterMock;
 use OvhSwift\Tests\Mocks\SPI\FileUserMock;
 
-class FileManagerTest extends AbstractDomainTester
+class FileFinderTest extends AbstractFileTester
 {
-    protected string $domainName = FileManager::class;
-    protected string $getterClass = FileGetterMock::class;
-    protected string $setterClass = FileSetterMock::class;
-
     /**
      * @return void
      */
