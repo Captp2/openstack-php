@@ -26,7 +26,7 @@ class FileManagerGetterTest extends AbstractAccessorTester
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \OvhSwift\Exceptions\InvalidConfigException
      */
-    public function testICanFindAFileByName()
+    public function testICanFindAFileByName(): void
     {
         $authentication = (new Authenticator())->login();
 
