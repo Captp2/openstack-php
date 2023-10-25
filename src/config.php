@@ -9,6 +9,7 @@ use OvhSwift\Accessors\OVH\Setters\FileSetter;
 use OvhSwift\Domains\Authenticator;
 use OvhSwift\Domains\ContainerManager;
 use OvhSwift\Domains\FileManager;
+use OvhSwift\Interfaces\SPI\IUseContainers;
 use OvhSwift\Interfaces\SPI\IUseFiles;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
@@ -40,7 +41,8 @@ return [
             ]
         ],
         'spi' => [
-            FileManager::class => IUseFiles::class
+            FileManager::class => IUseFiles::class,
+            ContainerManager::class => IUseContainers::class
         ]
     ]
 ];

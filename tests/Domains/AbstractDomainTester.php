@@ -4,9 +4,9 @@ namespace OvhSwift\Tests\Domains;
 
 use OvhSwift\Domains\AbstractDomain;
 use OvhSwift\Accessors\AbstractAccessor;
-use PHPUnit\Framework\TestCase;
+use OvhSwift\Tests\AbstractTester;
 
-abstract class AbstractDomainTester extends TestCase
+abstract class AbstractDomainTester extends AbstractTester
 {
     protected AbstractDomain $domain;
     protected AbstractAccessor $accessor;

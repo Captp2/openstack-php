@@ -10,9 +10,38 @@ class App
 {
     protected array $config;
 
-    public function __construct()
+    /**
+     * @param array|null $attributes
+     */
+    public function __construct(array $attributes = null)
     {
         $this->config = ConfigLoader::getConfig();
+
+        $missingAttributes = [];
+
+        foreach ($this->requiredAttributes() as $requiredAttribute) {
+            if (!isset($attributes[$requiredAttribute])) {
+                $missingAttributes[] = $requiredAttribute;
+            }
+        }
+
+        if ($missingAttributes) {
+            throw new \InvalidArgumentException('Missing attributes: ' . implode(', ', $missingAttributes));
+        }
+
+        if ($attributes) {
+            foreach ($attributes as $name => $value) {
+                $this->$name = $value;
+            }
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function requiredAttributes(): array
+    {
+        return [];
     }
 
     /**
