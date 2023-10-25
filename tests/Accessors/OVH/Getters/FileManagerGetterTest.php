@@ -28,13 +28,11 @@ class FileManagerGetterTest extends AbstractAccessorTester
      */
     public function testICanFindAFileByName(): void
     {
-        $authentication = (new Authenticator())->login();
-
-        $file = $this->accessor->getFileByName($authentication, self::CONTAINER_NAME, self::FILE_NAME);
+        $file = $this->accessor->getFileByName($this->authentication, self::CONTAINER_NAME, self::FILE_NAME);
 
         $this->assertInstanceOf(File::class, $file);
         $this->assertEquals(self::FILE_NAME, $file->fileName);
-        $this->assertEquals($authentication->swiftUrl . "/" . self::CONTAINER_NAME . "/" . self::FILE_NAME, $file->filePath);
+        $this->assertEquals($this->authentication->swiftUrl . "/" . self::CONTAINER_NAME . "/" . self::FILE_NAME, $file->filePath);
         $this->assertEquals(60692, $file->size);
         $this->assertEquals("image/jpeg", $file->mimeType);
     }

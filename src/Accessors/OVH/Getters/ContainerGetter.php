@@ -10,17 +10,9 @@ use OvhSwift\Traits\Guzzle;
 
 class ContainerGetter extends AbstractAccessor implements IGetContainers
 {
-    use Guzzle;
-
-    public function __construct()
-    {
-        $this->initializeGuzzleClient();
-        parent::__construct();
-    }
-
     /**
      * @param Authentication $authentication
-     * @return array
+     * @return Container[]
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function listContainers(Authentication $authentication): array
@@ -40,7 +32,7 @@ class ContainerGetter extends AbstractAccessor implements IGetContainers
         $containers = [];
         foreach ($responseItems as $container) {
             $containers[] = new Container([
-                'id' => $container['name'],
+                'name' => $container['name'],
                 'itemCount' => $container['count'],
                 'size' => $container['bytes'],
                 'lastModified' => new \DateTime($container['last_modified'])

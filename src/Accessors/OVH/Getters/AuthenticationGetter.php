@@ -5,20 +5,18 @@ namespace OvhSwift\Accessors\OVH\Getters;
 use JetBrains\PhpStorm\ArrayShape;
 use OvhSwift\Accessors\AbstractAccessor;
 use OvhSwift\Entities\Authentication;
+use OvhSwift\Interfaces\API\Getters\IGetAuthentication;
 use OvhSwift\Traits\Guzzle;
 
-class AuthenticationGetter extends AbstractAccessor implements \OvhSwift\Interfaces\API\Getters\IGetAuthentication
+class AuthenticationGetter extends AbstractAccessor implements IGetAuthentication
 {
-    use Guzzle;
-
     const AUTH_URI = 'https://auth.cloud.ovh.net/v3/auth/tokens';
     private array $ovhConfig;
 
-    public function __construct()
+    public function setUp()
     {
-        parent::__construct();
+        parent::setUp();
         $this->ovhConfig = $this->getOption('ovh.config');
-        $this->initializeGuzzleClient();
     }
 
     /**

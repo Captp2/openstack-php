@@ -6,7 +6,7 @@ use DateTime;
 
 class Container extends AbstractEntity
 {
-    public string $id;
+    public string $name;
     public string $itemCount;
     public string $size;
     public DateTime $lastModified;
