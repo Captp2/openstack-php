@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="SPI tests done">
-      <change afterPath="$PROJECT_DIR$/src/Interfaces/SPI/IUseContainers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/AbstractTester.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Mocks/SPI/ContainerUserMock.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Utils/Sidonie.jpg" afterDir="false" />
+    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="Updated API tests">
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/OpenStackException.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domains/ContainerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/ContainerManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domains/FileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/FileManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entities/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/File.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/SPI/IUseFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/SPI/IUseFiles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Accessors/AbstractAccessorTester.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/AbstractAccessorTester.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Domains/AbstractDomainTester.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/AbstractDomainTester.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/Container/ContainerCreationTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Domains/File/FileUploadTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/File/FileUploadTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Mocks/SPI/FileUserMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/SPI/FileUserMock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Domains/Container/ContainerCreationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/Container/ContainerCreationTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,7 +318,8 @@
     <MESSAGE value="Get file by name done" />
     <MESSAGE value="Added function return" />
     <MESSAGE value="SPI tests done" />
-    <option name="LAST_COMMIT_MESSAGE" value="SPI tests done" />
+    <MESSAGE value="Updated API tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated API tests" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
