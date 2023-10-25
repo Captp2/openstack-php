@@ -25,8 +25,8 @@ class FileGetter extends AbstractAccessor implements IGetFiles
         foreach ($files as $file) {
             if ($file['name'] === $fileName) {
                 return new File([
-                    'fileName' => $file['name'],
-                    'filePath' => $authentication->swiftUrl . "/{$containerName}/" . $fileName,
+                    'name' => $file['name'],
+                    'path' => $authentication->swiftUrl . "/{$containerName}/" . $fileName,
                     'mimeType' => $file['content_type'],
                     'size'     => $file['bytes']
                 ]);
