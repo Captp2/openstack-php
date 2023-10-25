@@ -23,12 +23,10 @@ class ContainerManagerGetterTest extends AbstractAccessorTester
      */
     public function testICanListContainers()
     {
-        $authentication = (new Authenticator())->login();
-
-        $containers = $this->accessor->listContainers($authentication);
+        $containers = $this->accessor->listContainers($this->authentication);
 
         $this->assertCount(2, $containers);
-        $this->assertEquals('swift-test-2', $containers[1]->id);
+        $this->assertEquals('swift-test-2', $containers[1]->name);
         $this->assertEquals('0', $containers[1]->size);
         $this->assertEquals('0', $containers[1]->itemCount);
         $this->assertInstanceOf(DateTime::class, $containers[0]->lastModified);

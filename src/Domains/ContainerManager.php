@@ -2,8 +2,11 @@
 
 namespace OvhSwift\Domains;
 
+use OvhSwift\Accessors\OVH\Getters\ContainerGetter;
+use OvhSwift\Accessors\OVH\Setters\ContainerSetter;
 use OvhSwift\Entities\File;
 use OvhSwift\Exceptions\OpenStackException;
+use OvhSwift\Exceptions\RessourceNotFoundException;
 use OvhSwift\Exceptions\RessourceValidationException;
 use OvhSwift\Interfaces\API\Getters\IGetContainers;
 use OvhSwift\Interfaces\API\Setters\ISetContainers;
@@ -17,6 +20,16 @@ class ContainerManager extends AbstractDomain
     protected object $spiAdapter;
 
     /**
+     * @var ContainerGetter $getter
+     */
+    protected object $getter;
+
+    /**
+     * @var ContainerSetter $setter
+     */
+    protected object $setter;
+
+    /**
      * @return array
      */
     public function listContainers(): array
@@ -26,12 +39,13 @@ class ContainerManager extends AbstractDomain
 
     /**
      * @param string $name
-     * @return void
-     * @throws RessourceValidationException|OpenStackException
+     * @return bool
+     * @throws OpenStackException
+     * @throws RessourceValidationException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function createContainer(string $name)
+    public function createContainer(string $name): bool
     {
-        ray(strlen($name));
         if(strlen($name) >= File::MAX_NAME_SIZE) {
             throw new OpenStackException("Container name must not be greater than " . File::MAX_NAME_SIZE);
         }
@@ -39,7 +53,32 @@ class ContainerManager extends AbstractDomain
             throw new RessourceValidationException("{$name} is not a valid container name");
         }
 
+        try {
+            return $this->setter->createContainer($this->authentication, $name);
+        } catch (\Exception $e) {
+            throw new OpenStackException($e->getMessage());
+        }
+    }
 
+    /**
+     * @param string $name
+     * @return bool
+     * @throws OpenStackException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function deleteContainer(string $name): bool
+    {
+        try {
+            if(!$this->setter->deleteContainer($this->authentication, $name)) {
+                throw new RessourceNotFoundException("Container {$name} not found");
+            }
+        } catch (\Exception $e) {
+            if(!$e instanceof RessourceNotFoundException) {
+                throw new OpenStackException($e->getMessage());
+            }
+        }
+
+        return true;
     }
 
     /**

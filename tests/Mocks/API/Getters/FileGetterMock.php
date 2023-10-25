@@ -10,7 +10,6 @@ use OvhSwift\Interfaces\API\Getters\IGetFiles;
 
 class FileGetterMock extends AbstractAccessor implements IGetFiles
 {
-    const FILE_ID = 1;
     const FILE_NAME = 'Sidonie.png';
     const FILE_PATH = 'tmp/Sidonie.png';
     const MIME_TYPE = 'image/png';
@@ -25,17 +24,15 @@ class FileGetterMock extends AbstractAccessor implements IGetFiles
 
         for ($i = 1; $i <= 10; $i++) {
             $this->mockedFiles[] = new File([
-                'id' => $faker->randomNumber(),
-                'fileName' => $faker->name(),
-                'filePath' => $faker->filePath(),
+                'name' => $faker->name(),
+                'path' => $faker->filePath(),
                 'mimeType' => $faker->mimeType()
             ]);
         }
 
         $this->mockedFiles[] = new File([
-            'id' => self::FILE_ID,
-            'fileName' => self::FILE_NAME,
-            'filePath' => self::FILE_PATH,
+            'name' => self::FILE_NAME,
+            'path' => self::FILE_PATH,
             'mimeType' => self::MIME_TYPE
         ]);
     }
@@ -47,7 +44,7 @@ class FileGetterMock extends AbstractAccessor implements IGetFiles
     public function getFileByName(Authentication $authentication, $containerName, $fileName): ?File
     {
         foreach ($this->mockedFiles as $mockedFile) {
-            if ($mockedFile->fileName === $fileName) {
+            if ($mockedFile->name === $fileName) {
                 return $mockedFile;
             }
         }

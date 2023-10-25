@@ -6,18 +6,9 @@ use OvhSwift\Accessors\AbstractAccessor;
 use OvhSwift\Entities\Authentication;
 use OvhSwift\Entities\File;
 use OvhSwift\Interfaces\API\Getters\IGetFiles;
-use OvhSwift\Traits\Guzzle;
 
 class FileGetter extends AbstractAccessor implements IGetFiles
 {
-    use Guzzle;
-
-    public function __construct()
-    {
-        $this->initializeGuzzleClient();
-        parent::__construct();
-    }
-
     public function getFileByName(Authentication $authentication, string $containerName, string $fileName): ?File
     {
         $request = $this->guzzleClient->request(

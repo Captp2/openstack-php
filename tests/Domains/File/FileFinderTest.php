@@ -18,9 +18,8 @@ class FileFinderTest extends AbstractFileTester
         $file = $this->getDomain(new FileUserMock())->findByName('test', FileGetterMock::FILE_NAME);
 
         $this->assertInstanceOf(File::class, $file);
-        $this->assertEquals(FileGetterMock::FILE_NAME, $file->fileName);
-        $this->assertEquals(FileGetterMock::FILE_ID, $file->id);
-        $this->assertEquals(FileGetterMock::FILE_PATH, $file->filePath);
+        $this->assertEquals(FileGetterMock::FILE_NAME, $file->name);
+        $this->assertEquals(FileGetterMock::FILE_PATH, $file->path);
     }
 
     /**

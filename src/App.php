@@ -34,6 +34,10 @@ class App
                 $this->$name = $value;
             }
         }
+
+        if(method_exists(static::class, 'setUp')) {
+            $this->setUp();
+        }
     }
 
     /**

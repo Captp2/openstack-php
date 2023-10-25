@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 
 trait Guzzle
 {
-    private Client $guzzleClient;
+    protected Client $guzzleClient;
 
     /**
      * @return void
