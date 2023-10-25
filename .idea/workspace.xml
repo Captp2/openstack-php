@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="Added function return">
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/RessourceValidationException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Domains/File/AbstractFileTester.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Domains/File/FileUploadTest.php" afterDir="false" />
+    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="SPI tests done">
+      <change afterPath="$PROJECT_DIR$/src/Interfaces/SPI/IUseContainers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/AbstractTester.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Mocks/SPI/ContainerUserMock.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Utils/Sidonie.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domains/AbstractDomain.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/AbstractDomain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domains/ContainerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/ContainerManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domains/FileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/FileManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/AbstractEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/AbstractEntity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Domains/FileManagerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/File/FileFinderTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/File.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/SPI/IUseFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/SPI/IUseFiles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Accessors/AbstractAccessorTester.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/AbstractAccessorTester.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Domains/AbstractDomainTester.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/AbstractDomainTester.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/Container/ContainerCreationTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Domains/File/FileUploadTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/File/FileUploadTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Mocks/SPI/FileUserMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/SPI/FileUserMock.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/upload-file" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -114,9 +119,9 @@
       <recent name="$PROJECT_DIR$/tests/Mocks/Getters" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.AuthenticatorTest">
-    <configuration name="AuthenticatorTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="OvhSwift\Tests\Domains\AuthenticatorTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Domains/AuthenticatorTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.FileUploadTest.testICantUploadAFileWithInvalidFileType">
+    <configuration name="ContainerCreationTest.testICantCreateAnInvalidNamedContainer" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="OvhSwift\Tests\Domains\Container\ContainerCreationTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Domains/Container/ContainerCreationTest.php" method="testICantCreateAnInvalidNamedContainer" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="ContainerManagerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -128,15 +133,28 @@
       <TestRunner class="OvhSwift\Tests\Domains\ContainerManagerTest" configuration_file="$PROJECT_DIR$/phpunit.xml" coverage_engine="PHPDBG" file="$PROJECT_DIR$/tests/Domains/ContainerManagerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
+    <configuration name="FileFinderTest.testICanFindAFileByName" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="OvhSwift\Tests\Domains\File\FileFinderTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Domains/File/FileFinderTest.php" method="testICanFindAFileByName" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FileUploadTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="OvhSwift\Tests\Domains\File\FileUploadTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Domains/File/FileUploadTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FileUploadTest.testICantUploadAFileWithInvalidFileType" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="OvhSwift\Tests\Domains\File\FileUploadTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Domains/File/FileUploadTest.php" method="testICantUploadAFileWithInvalidFileType" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ContainerManagerTest" />
-        <item itemvalue="PHPUnit.AuthenticatorTest" />
-        <item itemvalue="PHPUnit.AuthenticatorTest" />
+        <item itemvalue="PHPUnit.FileUploadTest.testICantUploadAFileWithInvalidFileType" />
+        <item itemvalue="PHPUnit.FileUploadTest" />
+        <item itemvalue="PHPUnit.ContainerCreationTest.testICantCreateAnInvalidNamedContainer" />
+        <item itemvalue="PHPUnit.FileFinderTest.testICanFindAFileByName" />
         <item itemvalue="PHPUnit.ContainerManagerTest" />
       </list>
     </recent_temporary>
@@ -153,6 +171,8 @@
       <workItem from="1697829318138" duration="9898000" />
       <workItem from="1698063974018" duration="3207000" />
       <workItem from="1698104498370" duration="14060000" />
+      <workItem from="1698224009974" duration="2080000" />
+      <workItem from="1698260389433" duration="3904000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1697727989013</created>
@@ -266,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698162395582</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="SPI tests done">
+      <created>1698169334375</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1698169334375</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +327,8 @@
     <MESSAGE value="Working on file getter" />
     <MESSAGE value="Get file by name done" />
     <MESSAGE value="Added function return" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added function return" />
+    <MESSAGE value="SPI tests done" />
+    <option name="LAST_COMMIT_MESSAGE" value="SPI tests done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -18,11 +18,10 @@ class FileUserMock extends App implements IUseFiles
 
     public function validateFileSize(int $fileSize): bool
     {
-        ray($this);
         return $this->validateFileSize;
     }
 
-    public function validateFileType(string $fileType): bool
+    public function validateMimeType(string $fileType): bool
     {
         return $this->validateFileType;
     }

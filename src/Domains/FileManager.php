@@ -31,21 +31,19 @@ class FileManager extends AbstractDomain
     }
 
     /**
-     * @param string $containerName
-     * @param string $fileName
-     * @param $fileData
+     * @param File $file
      * @return void
      * @throws RessourceValidationException
      */
-    public function uploadFile(string $containerName, string $fileName, string $fileType, $fileData): void
+    public function uploadFile(File $file): void
     {
-        if(!$this->spiAdapter->validateFileName($fileName)) {
-            throw new RessourceValidationException("Filename {$fileName} is invalid");
+        if(!$this->spiAdapter->validateFileName($file->name)) {
+            throw new RessourceValidationException("Filename {$file->name} is invalid");
         }
-        if(!$this->spiAdapter->validateFileType($fileType)) {
-            throw new RessourceValidationException("Filetype {$fileType} is invalid");
+        if(!$this->spiAdapter->validateMimeType($file->mimeType)) {
+            throw new RessourceValidationException("Filetype {$file->mimeType} is invalid");
         }
-        if(!$this->spiAdapter->validateFileSize($this->getFileSize($fileData))) {
+        if(!$this->spiAdapter->validateFileSize($this->getFileSize($file->size))) {
             throw new RessourceValidationException("Filesize is invalid");
         }
     }
