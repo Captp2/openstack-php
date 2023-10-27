@@ -17,6 +17,6 @@ class AbstractAccessorTester extends AbstractTester
     {
         parent::setUp();;
         $this->authentication = (new Authenticator())->login();
-        $this->accessor = new $this->accessorClass();
+        $this->accessor = new $this->accessorClass(['authentication' => $this->authentication]);
     }
 }

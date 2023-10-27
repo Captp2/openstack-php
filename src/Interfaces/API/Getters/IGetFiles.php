@@ -7,5 +7,5 @@ use OvhSwift\Entities\File;
 
 interface IGetFiles
 {
-    public function getFileByName(Authentication $authentication, string $containerName, string $fileName): ?File;
+    public function getFileByName(string $containerName, string $fileName): ?File;
 }

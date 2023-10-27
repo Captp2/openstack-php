@@ -11,14 +11,21 @@ class FileSetter extends AbstractAccessor implements ISetFiles
 {
     use Guzzle;
 
-    public function uploadFile(Authentication $authentication, string $containerName, string $fileName, string $filePath): bool
+    /**
+     * @param string $containerName
+     * @param string $fileName
+     * @param string $filePath
+     * @return bool
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function uploadFile(string $containerName, string $fileName, string $filePath): bool
     {
         $request = $this->guzzleClient->request(
             'PUT',
-            $authentication->swiftUrl . "/{$containerName}/{$fileName}",
+            $this->authentication->swiftUrl . "/{$containerName}/{$fileName}",
             [
                 'headers' => [
-                    'X-Auth-Token' => $authentication->token,
+                    'X-Auth-Token' => $this->authentication->token,
                     'Accept' => 'application/json'
                 ],
                 'body' => fopen($filePath, 'r')
@@ -27,14 +34,20 @@ class FileSetter extends AbstractAccessor implements ISetFiles
         return $request->getStatusCode() === 201;
     }
 
-    public function deleteFile(Authentication $authentication, string $containerName, string $fileName): bool
+    /**
+     * @param string $containerName
+     * @param string $fileName
+     * @return bool
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function deleteFile(string $containerName, string $fileName): bool
     {
         $request = $this->guzzleClient->request(
             'DELETE',
-            $authentication->swiftUrl . "/{$containerName}/{$fileName}",
+            $this->authentication->swiftUrl . "/{$containerName}/{$fileName}",
             [
                 'headers' => [
-                    'X-Auth-Token' => $authentication->token,
+                    'X-Auth-Token' => $this->authentication->token,
                     'Accept' => 'application/json'
                 ],
             ]);

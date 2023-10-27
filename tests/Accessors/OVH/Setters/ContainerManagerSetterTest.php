@@ -14,16 +14,23 @@ class ContainerManagerSetterTest extends AbstractAccessorTester
 
     private array $containerNames = [];
 
-    private static function getContainerName()
+    /**
+     * @return string
+     */
+    private static function getContainerName(): string
     {
         return self::$faker->text(50);
     }
 
+    /**
+     * @return void
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function tearDown(): void
     {
         foreach ($this->containerNames as $containerName) {
             try {
-                $this->accessor->deleteContainer($this->authentication, $containerName);
+                $this->accessor->deleteContainer($containerName);
             } catch (ClientException $e) {
                 if (!$e->getCode() == 404) {
                     throw $e;
@@ -37,13 +44,17 @@ class ContainerManagerSetterTest extends AbstractAccessorTester
      */
     public AbstractAccessor $accessor;
 
+    /**
+     * @return void
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function testICanDeleteAContainer()
     {
         $containerName = self::getContainerName();
         $this->containerNames[] = $containerName;
-        $this->accessor->createContainer($this->authentication, $containerName);
-        $this->assertTrue($this->accessor->deleteContainer($this->authentication, $containerName));
-        $containerList = (new ContainerGetter())->listContainers($this->authentication);
+        $this->accessor->createContainer($containerName);
+        $this->assertTrue($this->accessor->deleteContainer($containerName));
+        $containerList = (new ContainerGetter(['authentication' => $this->authentication]))->listContainers();
 
         $containerExists = false;
         foreach ($containerList as $container) {
@@ -54,15 +65,19 @@ class ContainerManagerSetterTest extends AbstractAccessorTester
         $this->assertFalse($containerExists);
     }
 
+    /**
+     * @return void
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function testICanCreateAContainer()
     {
         $containerName = self::getContainerName();
         $this->containerNames[] = $containerName;
         $this->assertTrue(
-            $this->accessor->createContainer($this->authentication, $containerName)
+            $this->accessor->createContainer($containerName)
         );
 
-        $containerList = (new ContainerGetter())->listContainers($this->authentication);
+        $containerList = (new ContainerGetter(['authentication' => $this->authentication]))->listContainers();
         $containerCreated = false;
         foreach ($containerList as $container) {
             if ($container->name === $containerName) {

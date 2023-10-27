@@ -27,8 +27,8 @@ abstract class AbstractDomain extends App
         parent::__construct();
         $this->authentication = Authenticator::login();
         $accessorsMap = $this->getOption('ovh.accessors.' . static::class);
-        $this->getter = $getter ?? (new $accessorsMap['getter']());
-        $this->setter = $setter ?? (new $accessorsMap['setter']());
+        $this->getter = $getter ?? (new $accessorsMap['getter'](['authentication' => $this->authentication]));
+        $this->setter = $setter ?? (new $accessorsMap['setter'](['authentication' => $this->authentication]));
 
         if ($this->useSpi) {
             $this->spiAdapter = $spiAdapter;

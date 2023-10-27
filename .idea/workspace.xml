@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="Access OK">
+    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="List container items done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Accessors/AbstractAccessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/AbstractAccessor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Accessors/OVH/Getters/ContainerGetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/OVH/Getters/ContainerGetter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Accessors/OVH/Getters/FileGetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/OVH/Getters/FileGetter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Accessors/OVH/Setters/ContainerSetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/OVH/Setters/ContainerSetter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Accessors/OVH/Setters/FileSetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/OVH/Setters/FileSetter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domains/AbstractDomain.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/AbstractDomain.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domains/ContainerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/ContainerManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domains/FileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/FileManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interfaces/API/Getters/IGetContainers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/API/Getters/IGetContainers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Traits/Guzzle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traits/Guzzle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/API/Getters/IGetFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/API/Getters/IGetFiles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/API/Setters/ISetContainers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/API/Setters/ISetContainers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/API/Setters/ISetFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/API/Setters/ISetFiles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Accessors/AbstractAccessorTester.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/AbstractAccessorTester.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/ContainerManagerGetterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/ContainerManagerGetterTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/FileManagerGetterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/FileManagerGetterTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Accessors/OVH/Setters/ContainerManagerSetterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Setters/ContainerManagerSetterTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Accessors/OVH/Setters/FileManagerSetterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Setters/FileManagerSetterTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Domains/AbstractDomainTester.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Domains/AbstractDomainTester.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Mocks/API/Getters/ContainerGetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/API/Getters/ContainerGetterMock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Mocks/API/Getters/FileGetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/API/Getters/FileGetterMock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Mocks/API/Setters/ContainerSetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/API/Setters/ContainerSetterMock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Mocks/API/Setters/FileSetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/API/Setters/FileSetterMock.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,13 +127,13 @@
       <recent name="$PROJECT_DIR$/tests/Mocks/Getters" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.FileUploadTest">
+  <component name="RunManager" selected="PHPUnit.FileManagerSetterTest">
     <configuration name="ContainerCreationTest.testICantCreateAnInvalidNamedContainer" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="OvhSwift\Tests\Domains\Container\ContainerCreationTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Domains/Container/ContainerCreationTest.php" method="testICantCreateAnInvalidNamedContainer" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="FileFinderTest.testICanFindAFileByName" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="OvhSwift\Tests\Domains\File\FileFinderTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Domains/File/FileFinderTest.php" method="testICanFindAFileByName" scope="Method" />
+    <configuration name="FileManagerSetterTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="OvhSwift\Tests\Accessors\OVH\Setters\FileManagerSetterTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Accessors/OVH/Setters/FileManagerSetterTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="FileUploadTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -138,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.FileManagerSetterTest" />
         <item itemvalue="PHPUnit.FileUploadTest" />
         <item itemvalue="PHPUnit.FileUploadTest.testICantUploadAFileWithInvalidSize" />
         <item itemvalue="PHPUnit.FileUploadTest.testICantUploadAFileWithInvalidFileType" />
         <item itemvalue="PHPUnit.ContainerCreationTest.testICantCreateAnInvalidNamedContainer" />
-        <item itemvalue="PHPUnit.FileFinderTest.testICanFindAFileByName" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +177,7 @@
       <workItem from="1698224009974" duration="2080000" />
       <workItem from="1698260389433" duration="3904000" />
       <workItem from="1698425408933" duration="542000" />
-      <workItem from="1698439651333" duration="4092000" />
+      <workItem from="1698439651333" duration="6095000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1697727989013</created>
@@ -303,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698441713645</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="List container items done">
+      <created>1698443776379</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1698443776379</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +365,8 @@
     <MESSAGE value="Domain tests done" />
     <MESSAGE value="Creating and deleting files done" />
     <MESSAGE value="Access OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="Access OK" />
+    <MESSAGE value="List container items done" />
+    <option name="LAST_COMMIT_MESSAGE" value="List container items done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

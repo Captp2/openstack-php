@@ -13,18 +13,17 @@ use OvhSwift\Traits\Guzzle;
 class ContainerGetter extends AbstractAccessor implements IGetContainers
 {
     /**
-     * @param Authentication $authentication
      * @return Container[]
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function listContainers(Authentication $authentication): array
+    public function listContainers(): array
     {
         $request = $this->guzzleClient->request(
             'GET',
-            $authentication->swiftUrl,
+            $this->authentication->swiftUrl,
             [
                 'headers' => [
-                    'X-Auth-Token' => $authentication->token,
+                    'X-Auth-Token' => $this->authentication->token,
                     'Accept' => 'application/json'
                 ]
             ]);
@@ -45,20 +44,19 @@ class ContainerGetter extends AbstractAccessor implements IGetContainers
     }
 
     /**
-     * @param Authentication $authentication
      * @param string $name
      * @return array|null
      * @throws RessourceNotFoundException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function listItems(Authentication $authentication, string $name): ?array
+    public function listItems(string $name): ?array
     {
         $request = $this->guzzleClient->request(
             'GET',
-            $authentication->swiftUrl . "/" . $name,
+            $this->authentication->swiftUrl . "/" . $name,
             [
                 'headers' => [
-                    'X-Auth-Token' => $authentication->token,
+                    'X-Auth-Token' => $this->authentication->token,
                     'Accept' => 'application/json'
                 ]
             ]);
@@ -72,7 +70,7 @@ class ContainerGetter extends AbstractAccessor implements IGetContainers
         foreach ($containerItems as $file) {
             $files[] = new File([
                 'name' => $file['name'],
-                'path' => $authentication->swiftUrl . "/{$name}/" . $file['name'],
+                'path' => $this->authentication->swiftUrl . "/{$name}/" . $file['name'],
                 'size' => $file['bytes'],
                 'mimeType' => $file['content_type'],
                 'lastModified' => new \DateTime($file['last_modified'])

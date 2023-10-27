@@ -70,7 +70,7 @@ class ContainerManager extends AbstractDomain
     public function deleteContainer(string $name): bool
     {
         try {
-            if (!$this->setter->deleteContainer($this->authentication, $name)) {
+            if (!$this->setter->deleteContainer($name)) {
                 throw new RessourceNotFoundException("Container {$name} not found");
             }
         } catch (\Exception $e) {
@@ -91,7 +91,7 @@ class ContainerManager extends AbstractDomain
     public function listItems(string $name): array
     {
         try {
-            return $this->getter->listItems($this->authentication, $name);
+            return $this->getter->listItems($name);
         } catch (\Exception $e) {
             if (!$e instanceof RessourceNotFoundException) {
                 throw new OpenStackException($e->getMessage());

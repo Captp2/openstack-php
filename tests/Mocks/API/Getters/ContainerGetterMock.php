@@ -10,12 +10,12 @@ class ContainerGetterMock extends AbstractAccessor implements IGetContainers
 {
     public ?array $items = [];
 
-    public function listContainers(Authentication $authentication): array
+    public function listContainers(): array
     {
         return [];
     }
 
-    public function listItems(Authentication $authentication, string $name): array
+    public function listItems(string $name): array
     {
 
     }

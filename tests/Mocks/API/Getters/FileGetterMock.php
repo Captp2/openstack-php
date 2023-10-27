@@ -41,7 +41,7 @@ class FileGetterMock extends AbstractAccessor implements IGetFiles
      * @param string $fileName
      * @return File|null
      */
-    public function getFileByName(Authentication $authentication, $containerName, $fileName): ?File
+    public function getFileByName($containerName, $fileName): ?File
     {
         foreach ($this->mockedFiles as $mockedFile) {
             if ($mockedFile->name === $fileName) {

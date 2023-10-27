@@ -25,7 +25,7 @@ class ContainerManagerGetterTest extends AbstractAccessorTester
      */
     public function testICanListContainers(): void
     {
-        $containers = $this->accessor->listContainers($this->authentication);
+        $containers = $this->accessor->listContainers();
 
         $this->assertCount(2, $containers);
         $this->assertEquals('swift-test-2', $containers[1]->name);
@@ -40,7 +40,7 @@ class ContainerManagerGetterTest extends AbstractAccessorTester
      */
     public function testICanListContainerItems(): void
     {
-        $files = $this->accessor->listItems($this->authentication, 'swift-test');
+        $files = $this->accessor->listItems('swift-test');
 
         $this->assertCount(1, $files);
         $file = $files[0];
@@ -55,6 +55,6 @@ class ContainerManagerGetterTest extends AbstractAccessorTester
         $containerName = self::$faker->name(50);
         $this->expectException(RessourceNotFoundException::class);
         $this->expectExceptionMessage("Container {$containerName} not found");
-        $this->accessor->listItems($this->authentication, $containerName);
+        $this->accessor->listItems($containerName);
     }
 }
