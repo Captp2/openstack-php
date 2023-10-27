@@ -3,7 +3,6 @@
 namespace OvhSwift\Domains;
 
 use OvhSwift\App;
-use OvhSwift\Entities\Authentication;
 use OvhSwift\Exceptions\InvalidConfigException;
 
 abstract class AbstractDomain extends App

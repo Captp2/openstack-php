@@ -31,6 +31,7 @@ class ContainerManager extends AbstractDomain
 
     /**
      * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function listContainers(): array
     {
@@ -79,6 +80,21 @@ class ContainerManager extends AbstractDomain
         }
 
         return true;
+    }
+
+    /**
+     * @return void
+     * @throws OpenStackException
+     */
+    public function listItems(string $name): array
+    {
+        try {
+            $this->getter->listFiles($this->authentication, $name);
+        } catch (\Exception $e) {
+            if(!$e instanceof RessourceNotFoundException) {
+                throw new OpenStackException($e->getMessage());
+            }
+        }
     }
 
     /**

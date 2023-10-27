@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="SPI tests done">
-      <change afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Setters/FileManagerSetterTest.php" afterDir="false" />
+    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="Creating and deleting files done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Accessors/OVH/Getters/FileGetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/OVH/Getters/FileGetter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Accessors/OVH/Setters/FileSetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/OVH/Setters/FileSetter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domains/FileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/FileManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/API/Setters/ISetFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/API/Setters/ISetFiles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Accessors/OVH/Getters/ContainerGetter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Accessors/OVH/Getters/ContainerGetter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domains/AbstractDomain.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/AbstractDomain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domains/ContainerManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/ContainerManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/API/Getters/IGetContainers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/API/Getters/IGetContainers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/AbstractTester.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AbstractTester.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/ContainerManagerGetterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/ContainerManagerGetterTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/FileManagerGetterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Accessors/OVH/Getters/FileManagerGetterTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Mocks/API/Setters/FileSetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/API/Setters/FileSetterMock.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Utils/Sidonie.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Utils/Sidonie2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Mocks/API/Getters/ContainerGetterMock.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Mocks/API/Getters/ContainerGetterMock.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="feature/file-creation-and-deletion" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -164,6 +161,8 @@
       <workItem from="1698104498370" duration="14060000" />
       <workItem from="1698224009974" duration="2080000" />
       <workItem from="1698260389433" duration="3904000" />
+      <workItem from="1698425408933" duration="542000" />
+      <workItem from="1698439651333" duration="2015000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1697727989013</created>
@@ -291,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698266174324</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Creating and deleting files done">
+      <created>1698275516119</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1698275516119</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,7 +334,8 @@
     <MESSAGE value="SPI tests done" />
     <MESSAGE value="Updated API tests" />
     <MESSAGE value="Domain tests done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Domain tests done" />
+    <MESSAGE value="Creating and deleting files done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating and deleting files done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
