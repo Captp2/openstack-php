@@ -6,5 +6,7 @@ use OvhSwift\Entities\Authentication;
 
 Interface IGetContainers
 {
-    public function listContainers(Authentication $authentication): array;
+    public function listContainers(): array;
+
+    public function listItems(string $name): ?array;
 }

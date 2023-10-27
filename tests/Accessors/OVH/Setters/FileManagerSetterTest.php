@@ -29,13 +29,12 @@ class FileManagerSetterTest extends AbstractAccessorTester
     public function testICanUploadAFile(): void
     {
         $this->assertTrue($this->accessor->uploadFile(
-            $this->authentication,
             self::CONTAINER_NAME,
             self::FILE_NAME,
             self::FILE_PATH
         ));
 
-        $file = (new FileGetter())->getFileByName($this->authentication, self::CONTAINER_NAME, self::FILE_NAME);
+        $file = (new FileGetter(['authentication' => $this->authentication]))->getFileByName(self::CONTAINER_NAME, self::FILE_NAME);
         $this->assertInstanceOf(File::class, $file);
         $this->assertEquals(self::FILE_NAME, $file->name);
         $this->assertEquals($this->authentication->swiftUrl . "/" . self::CONTAINER_NAME . "/" . self::FILE_NAME, $file->path);
@@ -48,15 +47,13 @@ class FileManagerSetterTest extends AbstractAccessorTester
     public function testICanDeleteAFile(): void
     {
         $this->accessor->uploadFile(
-            $this->authentication,
             self::CONTAINER_NAME,
             self::FILE_NAME,
             self::FILE_PATH
         );
 
-        $this->accessor->deleteFile($this->authentication, self::CONTAINER_NAME, self::FILE_NAME);
-        $this->assertNull((new FileGetter())->getFileByName(
-            $this->authentication,
+        $this->accessor->deleteFile(self::CONTAINER_NAME, self::FILE_NAME);
+        $this->assertNull((new FileGetter(['authentication' => $this->authentication]))->getFileByName(
             self::CONTAINER_NAME,
             self::FILE_NAME)
         );

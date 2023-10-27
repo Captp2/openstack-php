@@ -28,7 +28,7 @@ class FileManagerGetterTest extends AbstractAccessorTester
      */
     public function testICanFindAFileByName(): void
     {
-        $file = $this->accessor->getFileByName($this->authentication, self::CONTAINER_NAME, self::FILE_NAME);
+        $file = $this->accessor->getFileByName(self::CONTAINER_NAME, self::FILE_NAME);
 
         $this->assertInstanceOf(File::class, $file);
         $this->assertEquals(self::FILE_NAME, $file->name);

@@ -13,6 +13,6 @@ trait Guzzle
      */
     private function initializeGuzzleClient(): void
     {
-        $this->guzzleClient = new Client();
+        $this->guzzleClient = new Client(['http_errors' => false]);
     }
 }

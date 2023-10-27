@@ -4,6 +4,7 @@ namespace OvhSwift\Tests\Domains;
 
 use OvhSwift\Domains\AbstractDomain;
 use OvhSwift\Accessors\AbstractAccessor;
+use OvhSwift\Domains\Authenticator;
 use OvhSwift\Tests\AbstractTester;
 
 abstract class AbstractDomainTester extends AbstractTester
@@ -17,6 +18,10 @@ abstract class AbstractDomainTester extends AbstractTester
 
     public function getDomain(?object $adapterClass = null)
     {
-        return new $this->domainName($adapterClass, new $this->getterClass(), new $this->setterClass());
+        $authentication = (new Authenticator())->login();
+        return new $this->domainName($adapterClass,
+            new $this->getterClass(['authentication' => $authentication]),
+            new $this->setterClass(['authentication' => $authentication])
+        );
     }
 }

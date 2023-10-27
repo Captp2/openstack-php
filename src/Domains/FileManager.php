@@ -3,6 +3,7 @@
 namespace OvhSwift\Domains;
 
 use OvhSwift\Entities\File;
+use OvhSwift\Exceptions\OpenStackException;
 use OvhSwift\Exceptions\RessourceNotFoundException;
 use OvhSwift\Exceptions\RessourceValidationException;
 use OvhSwift\Interfaces\API\Getters\IGetFiles;
@@ -23,7 +24,7 @@ class FileManager extends AbstractDomain
      */
     public function findByName(string $containerName, string $fileName): File
     {
-        if (!$file = $this->getter->getFileByName($this->authentication, $containerName, $fileName)) {
+        if (!$file = $this->getter->getFileByName($containerName, $fileName)) {
             throw new RessourceNotFoundException("File {$fileName} not found in {$containerName}");
         }
 
@@ -45,6 +46,12 @@ class FileManager extends AbstractDomain
         }
         if(!$this->spiAdapter->validateFileSize($this->getFileSize($file->size))) {
             throw new RessourceValidationException("Filesize is invalid");
+        }
+
+        try {
+            $this->setter->uploadFile($file);
+        } catch (\Exception $e) {
+            throw new OpenStackException($e->getMessage());
         }
     }
 

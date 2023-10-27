@@ -8,8 +8,15 @@ use OvhSwift\Interfaces\API\Getters\IGetContainers;
 
 class ContainerGetterMock extends AbstractAccessor implements IGetContainers
 {
-    public function listContainers(Authentication $authentication): array
+    public ?array $items = [];
+
+    public function listContainers(): array
     {
         return [];
+    }
+
+    public function listItems(string $name): array
+    {
+
     }
 }

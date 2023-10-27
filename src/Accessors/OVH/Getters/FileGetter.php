@@ -9,14 +9,14 @@ use OvhSwift\Interfaces\API\Getters\IGetFiles;
 
 class FileGetter extends AbstractAccessor implements IGetFiles
 {
-    public function getFileByName(Authentication $authentication, string $containerName, string $fileName): ?File
+    public function getFileByName(string $containerName, string $fileName): ?File
     {
         $request = $this->guzzleClient->request(
             'GET',
-            $authentication->swiftUrl . "/{$containerName}",
+            $this->authentication->swiftUrl . "/{$containerName}",
             [
                 'headers' => [
-                    'X-Auth-Token' => $authentication->token,
+                    'X-Auth-Token' => $this->authentication->token,
                     'Accept' => 'application/json'
                 ]
             ]);
@@ -26,7 +26,7 @@ class FileGetter extends AbstractAccessor implements IGetFiles
             if ($file['name'] === $fileName) {
                 return new File([
                     'name' => $file['name'],
-                    'path' => $authentication->swiftUrl . "/{$containerName}/" . $fileName,
+                    'path' => $this->authentication->swiftUrl . "/{$containerName}/" . $fileName,
                     'mimeType' => $file['content_type'],
                     'size'     => $file['bytes']
                 ]);

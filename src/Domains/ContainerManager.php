@@ -31,6 +31,7 @@ class ContainerManager extends AbstractDomain
 
     /**
      * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function listContainers(): array
     {
@@ -46,7 +47,7 @@ class ContainerManager extends AbstractDomain
      */
     public function createContainer(string $name): bool
     {
-        if(strlen($name) >= File::MAX_NAME_SIZE) {
+        if (strlen($name) >= File::MAX_NAME_SIZE) {
             throw new OpenStackException("Container name must not be greater than " . File::MAX_NAME_SIZE);
         }
         if (!$this->spiAdapter->validateContainerName($name)) {
@@ -69,16 +70,33 @@ class ContainerManager extends AbstractDomain
     public function deleteContainer(string $name): bool
     {
         try {
-            if(!$this->setter->deleteContainer($this->authentication, $name)) {
+            if (!$this->setter->deleteContainer($name)) {
                 throw new RessourceNotFoundException("Container {$name} not found");
             }
         } catch (\Exception $e) {
-            if(!$e instanceof RessourceNotFoundException) {
+            if (!$e instanceof RessourceNotFoundException) {
                 throw new OpenStackException($e->getMessage());
             }
         }
 
         return true;
+    }
+
+    /**
+     * @param string $name
+     * @return array
+     * @throws OpenStackException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function listItems(string $name): array
+    {
+        try {
+            return $this->getter->listItems($name);
+        } catch (\Exception $e) {
+            if (!$e instanceof RessourceNotFoundException) {
+                throw new OpenStackException($e->getMessage());
+            }
+        }
     }
 
     /**

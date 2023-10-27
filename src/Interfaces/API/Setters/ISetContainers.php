@@ -6,7 +6,7 @@ use OvhSwift\Entities\Authentication;
 
 Interface ISetContainers
 {
-    public function createContainer(Authentication $authentication, string $name): bool;
+    public function createContainer(string $name): bool;
 
-    public function deleteContainer(Authentication $authentication, string $name): bool;
+    public function deleteContainer(string $name): bool;
 }

@@ -3,25 +3,24 @@
 namespace OvhSwift\Accessors\OVH\Setters;
 
 use OvhSwift\Accessors\AbstractAccessor;
-use OvhSwift\Entities\Authentication;
 use OvhSwift\Interfaces\API\Setters\ISetContainers;
 
 class ContainerSetter extends AbstractAccessor implements ISetContainers
 {
     /**
-     * @param Authentication $authentication
      * @param $name
      * @return bool
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function createContainer(Authentication $authentication, $name): bool
+    public function createContainer($name): bool
     {
+        ray($this->authentication);
         $request = $this->guzzleClient->request(
             'PUT',
-            $authentication->swiftUrl . "/{$name}",
+            $this->authentication->swiftUrl . "/{$name}",
             [
                 'headers' => [
-                    'X-Auth-Token' => $authentication->token,
+                    'X-Auth-Token' => $this->authentication->token,
                     'Accept' => 'application/json'
                 ]
             ]);
@@ -30,19 +29,18 @@ class ContainerSetter extends AbstractAccessor implements ISetContainers
     }
 
     /**
-     * @param Authentication $authentication
      * @param string $name
      * @return bool
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function deleteContainer(Authentication $authentication, string $name): bool
+    public function deleteContainer(string $name): bool
     {
         $request = $this->guzzleClient->request(
             'DELETE',
-            $authentication->swiftUrl . "/{$name}",
+            $this->authentication->swiftUrl . "/{$name}",
             [
                 'headers' => [
-                    'X-Auth-Token' => $authentication->token,
+                    'X-Auth-Token' => $this->authentication->token,
                 ]
             ]);
 

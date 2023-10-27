@@ -7,12 +7,12 @@ use OvhSwift\Entities\Authentication;
 
 class FileSetterMock extends AbstractAccessor implements \OvhSwift\Interfaces\API\Setters\ISetFiles
 {
-    public function uploadFile(Authentication $authentication, string $containerName, string $fileName, string $filePath): bool
+    public function uploadFile(string $containerName, string $fileName, string $filePath): bool
     {
         // TODO: Implement uploadFile() method.
     }
 
-    public function deleteFile(Authentication $authentication, string $containerName, string $fileName): bool
+    public function deleteFile(string $containerName, string $fileName): bool
     {
         // TODO: Implement deleteFile() method.
     }
