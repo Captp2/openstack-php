@@ -7,6 +7,7 @@ use OvhSwift\Accessors\AbstractAccessor;
 use OvhSwift\Accessors\OVH\Getters\ContainerGetter;
 use OvhSwift\Domains\Authenticator;
 use OvhSwift\Entities\File;
+use OvhSwift\Exceptions\RessourceNotFoundException;
 use OvhSwift\Tests\Accessors\AbstractAccessorTester;
 
 class ContainerManagerGetterTest extends AbstractAccessorTester
@@ -22,7 +23,7 @@ class ContainerManagerGetterTest extends AbstractAccessorTester
      * @return void
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function testICanListContainers()
+    public function testICanListContainers(): void
     {
         $containers = $this->accessor->listContainers($this->authentication);
 
@@ -33,7 +34,11 @@ class ContainerManagerGetterTest extends AbstractAccessorTester
         $this->assertInstanceOf(DateTime::class, $containers[0]->lastModified);
     }
 
-    public function testICanListContainerItems()
+    /**
+     * @return void
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testICanListContainerItems(): void
     {
         $files = $this->accessor->listItems($this->authentication, 'swift-test');
 
@@ -43,5 +48,13 @@ class ContainerManagerGetterTest extends AbstractAccessorTester
         $this->assertEquals('Sidonie.jpg', $file->name);
         $this->assertEquals('60692', $file->size);
         $this->assertEquals('image/jpeg', $file->mimeType);
+    }
+
+    public function testICantListItemsFromUnknownContainer()
+    {
+        $containerName = self::$faker->name(50);
+        $this->expectException(RessourceNotFoundException::class);
+        $this->expectExceptionMessage("Container {$containerName} not found");
+        $this->accessor->listItems($this->authentication, $containerName);
     }
 }
