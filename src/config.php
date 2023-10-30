@@ -12,8 +12,7 @@ use OvhSwift\Domains\FileManager;
 use OvhSwift\Interfaces\SPI\IUseContainers;
 use OvhSwift\Interfaces\SPI\IUseFiles;
 
-$projectRootPath = dirname(\Composer\Factory::getComposerFile());
-$dotenv = Dotenv\Dotenv::createImmutable($projectRootPath);
+$dotenv = Dotenv\Dotenv::createImmutable('../');
 $dotenv->load();
 
 return [
