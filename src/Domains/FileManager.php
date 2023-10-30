@@ -50,7 +50,7 @@ class FileManager extends AbstractDomain
         if(!$this->spiAdapter->validateMimeType($file->mimeType)) {
             throw new RessourceValidationException("Filetype {$file->mimeType} is invalid");
         }
-        if(!$this->spiAdapter->validateFileSize($this->getFileSize($file->size))) {
+        if(!$this->spiAdapter->validateFileSize($file->size)) {
             throw new RessourceValidationException("Filesize is invalid");
         }
 
@@ -74,17 +74,6 @@ class FileManager extends AbstractDomain
         }
 
         return true;
-    }
-
-    /**
-     * @param $fileData
-     * @return int
-     *
-     * @TODO find a way to do this shit
-     */
-    public function getFileSize($fileData)
-    {
-        return 123;
     }
 
     /**

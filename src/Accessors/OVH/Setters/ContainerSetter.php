@@ -14,7 +14,6 @@ class ContainerSetter extends AbstractAccessor implements ISetContainers
      */
     public function createContainer($name): bool
     {
-        ray($this->authentication);
         $request = $this->guzzleClient->request(
             'PUT',
             $this->authentication->swiftUrl . "/{$name}",
