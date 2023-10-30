@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="List container items done">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="Fixed autoloader">
       <change beforePath="$PROJECT_DIR$/src/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -313,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698684679554</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Fixed autoloader">
+      <created>1698689537952</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1698689537952</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +360,8 @@
     <MESSAGE value="Access OK" />
     <MESSAGE value="List container items done" />
     <MESSAGE value="Faker is now require-dev only" />
-    <option name="LAST_COMMIT_MESSAGE" value="Faker is now require-dev only" />
+    <MESSAGE value="Fixed autoloader" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed autoloader" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
