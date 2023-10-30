@@ -2,6 +2,7 @@
 
 namespace OvhSwift\Domains;
 
+use OvhSwift\Accessors\OVH\Setters\FileSetter;
 use OvhSwift\Entities\File;
 use OvhSwift\Exceptions\OpenStackException;
 use OvhSwift\Exceptions\RessourceNotFoundException;
@@ -16,6 +17,11 @@ class FileManager extends AbstractDomain
      * @var IUseFiles $spiAdapter
      */
     protected object $spiAdapter;
+
+    /**
+     * @var FileSetter
+     */
+    protected object $setter;
 
     /**
      * @param string $fileName
@@ -36,7 +42,7 @@ class FileManager extends AbstractDomain
      * @return void
      * @throws RessourceValidationException
      */
-    public function uploadFile(File $file): void
+    public function uploadFile(string $containerName, File $file): void
     {
         if(!$this->spiAdapter->validateFileName($file->name)) {
             throw new RessourceValidationException("Filename {$file->name} is invalid");
@@ -49,7 +55,7 @@ class FileManager extends AbstractDomain
         }
 
         try {
-            $this->setter->uploadFile($file);
+            $this->setter->uploadFile($containerName, $file->name, $file->path);
         } catch (\Exception $e) {
             throw new OpenStackException($e->getMessage());
         }
