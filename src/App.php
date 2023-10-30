@@ -4,7 +4,7 @@ namespace OvhSwift;
 
 use OvhSwift\Exceptions\InvalidConfigException;
 
-require __DIR__ . '/vendor/autoload.php';
+require '/vendor/composer/autoload.php';
 
 class App
 {
