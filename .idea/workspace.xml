@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="All done !">
+    <list default="true" id="1fdecf75-8310-4b6c-9933-76501c8e4b9d" name="Changes" comment="Faker is now require-dev only">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domains/FileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domains/FileManager.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +157,7 @@
       <workItem from="1698260389433" duration="3904000" />
       <workItem from="1698425408933" duration="542000" />
       <workItem from="1698439651333" duration="6095000" />
-      <workItem from="1698684394095" duration="271000" />
+      <workItem from="1698684394095" duration="2096000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1697727989013</created>
@@ -306,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698443776379</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Faker is now require-dev only">
+      <created>1698684679554</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1698684679554</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +353,8 @@
     <MESSAGE value="Creating and deleting files done" />
     <MESSAGE value="Access OK" />
     <MESSAGE value="List container items done" />
-    <option name="LAST_COMMIT_MESSAGE" value="List container items done" />
+    <MESSAGE value="Faker is now require-dev only" />
+    <option name="LAST_COMMIT_MESSAGE" value="Faker is now require-dev only" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
