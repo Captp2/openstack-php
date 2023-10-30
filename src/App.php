@@ -4,8 +4,6 @@ namespace OvhSwift;
 
 use OvhSwift\Exceptions\InvalidConfigException;
 
-require '/vendor/composer/autoload.php';
-
 class App
 {
     protected array $config;
