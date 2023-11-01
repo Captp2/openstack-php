@@ -2,6 +2,7 @@
 
 namespace OvhSwift\Domains;
 
+use GuzzleHttp\Exception\GuzzleException;
 use OvhSwift\Accessors\OVH\Setters\FileSetter;
 use OvhSwift\Entities\File;
 use OvhSwift\Exceptions\OpenStackException;
@@ -45,9 +46,9 @@ class FileManager extends AbstractDomain
      * @throws OpenStackException
      * @throws ResourceNotFoundException
      * @throws ResourceValidationException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
-    public function uploadFile(string $containerName, File $file): bool
+    public function uploadFile(string $containerName, File $file, $createContainer = false): bool
     {
         if (!$this->spiAdapter->validateFileName($file->name)) {
             throw new ResourceValidationException("Filename {$file->name} is invalid");
@@ -59,7 +60,7 @@ class FileManager extends AbstractDomain
             throw new ResourceValidationException("Filesize is invalid");
         }
 
-        $response = $this->setter->deleteFile($containerName, $file->name);
+        $response = $this->setter->uploadFile($containerName, $file->name, $file->path, $createContainer);
         if (!$response->success) {
             if (isset($response->errors['404'])) {
                 throw new ResourceNotFoundException($response->errors['404']);
@@ -77,7 +78,7 @@ class FileManager extends AbstractDomain
      * @return bool
      * @throws OpenStackException
      * @throws ResourceNotFoundException
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function deleteFile(string $containerName, string $fileName): bool
     {

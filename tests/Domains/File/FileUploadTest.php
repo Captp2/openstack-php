@@ -69,7 +69,7 @@ class FileUploadTest extends AbstractFileTester
             new FileUserMock(),
             null,
             new FileSetterMock([
-                'deleteFileResponse' => new AccessorResponse([
+                'uploadFileResponse' => new AccessorResponse([
                     'success' => false,
                     'errors' => [
                         '404' => "Resource not found"

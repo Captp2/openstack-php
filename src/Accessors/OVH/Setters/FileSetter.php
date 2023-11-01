@@ -15,10 +15,11 @@ class FileSetter extends AbstractAccessor implements ISetFiles
      * @param string $containerName
      * @param string $fileName
      * @param string $filePath
-     * @return bool
+     * @param bool $createContainer
+     * @return AccessorResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function uploadFile(string $containerName, string $fileName, string $filePath): AccessorResponse
+    public function uploadFile(string $containerName, string $fileName, string $filePath, bool $createContainer = false): AccessorResponse
     {
         $request = $this->guzzleClient->request(
             'PUT',
@@ -31,7 +32,16 @@ class FileSetter extends AbstractAccessor implements ISetFiles
                 'body' => fopen($filePath, 'r')
             ]);
 
-        $response = $request->getStatusCode() === 201 ? [] :
+        $statusCode = $request->getStatusCode();
+
+        ray('1');
+        if ($createContainer && $statusCode === 404) {
+            ray($containerName);
+            (new ContainerSetter(['authentication' => $this->authentication]))->createContainer($containerName);
+            return $this->uploadFile($containerName, $fileName, $filePath);
+        }
+
+        $response = $statusCode === 201 ? [] :
             [
                 'success' => false,
                 'code' => $request->getStatusCode(),

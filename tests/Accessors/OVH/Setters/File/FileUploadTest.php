@@ -61,4 +61,26 @@ class FileUploadTest extends AbstractAccessorTester
         $this->assertEquals(404, $response->code);
         $this->assertEquals("Unknown error", $response->message);
     }
+
+    /**
+     * @return void
+     */
+    public function testICanCreateContainerWhenItDoesNotExists(): void
+    {
+        $containerName = self::$faker->text(25);
+        $this->containerNames[] = $containerName;
+
+        $this->accessor->uploadFile($containerName,
+            self::FILE_NAME,
+            self::FILE_PATH,
+            true
+        );
+
+        $file = (new FileGetter(
+            ['authentication' => $this->authentication]
+        ))->getFileByName($containerName, self::FILE_NAME);
+        $this->assertInstanceOf(File::class, $file);
+
+        $this->accessor->deleteFile($containerName, self::FILE_NAME);
+    }
 }

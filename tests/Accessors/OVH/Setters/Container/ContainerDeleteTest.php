@@ -13,8 +13,6 @@ class ContainerDeleteTest extends AbstractAccessorTester
 {
     protected string $accessorClass = ContainerSetter::class;
 
-    private array $containerNames = [];
-
     /**
      * @return string
      */

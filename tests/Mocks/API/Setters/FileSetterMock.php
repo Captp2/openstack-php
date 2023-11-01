@@ -12,7 +12,7 @@ class FileSetterMock extends AbstractAccessor implements ISetFiles
     public AccessorResponse $uploadFileResponse;
     public AccessorResponse $deleteFileResponse;
 
-    public function uploadFile(string $containerName, string $fileName, string $filePath): AccessorResponse
+    public function uploadFile(string $containerName, string $fileName, string $filePath, bool $createContainer = false): AccessorResponse
     {
         return $this->uploadFileResponse;
     }
