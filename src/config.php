@@ -23,7 +23,7 @@ return [
             'password' => $_ENV['SWIFT_PASSWORD'],
             'project_id' => $_ENV['SWIFT_PROJECT_ID'],
             'domain_id' => $_ENV['SWIFT_DOMAIN'] ?? 'default',
-            'protocol' => $_ENV['SWIFT_PROTOCOL'] ?? 'swift',
+            'protocol' => $_ENV['SWIFT_PROVIDER'] ?? 'swift',
             'max_file_size' => $_ENV['MAX_FILE_SIZE'] ?? 262144000
         ],
         'accessors' => [
