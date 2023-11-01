@@ -4,8 +4,9 @@ namespace OvhSwift\Tests\Mocks\API\Setters;
 
 use OvhSwift\Accessors\AbstractAccessor;
 use OvhSwift\Accessors\AccessorResponse;
+use OvhSwift\Interfaces\API\Setters\ISetContainers;
 
-class ContainerSetterMock extends AbstractAccessor implements \OvhSwift\Interfaces\API\Setters\ISetContainers
+class ContainerSetterMock extends AbstractAccessor implements ISetContainers
 {
     public AccessorResponse $createResponse;
     public AccessorResponse $deleteResponse;
