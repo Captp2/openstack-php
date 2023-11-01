@@ -3,17 +3,21 @@
 namespace OvhSwift\Tests\Mocks\API\Setters;
 
 use OvhSwift\Accessors\AbstractAccessor;
-use OvhSwift\Entities\Authentication;
+use OvhSwift\Accessors\AccessorResponse;
+use OvhSwift\Interfaces\API\Setters\ISetContainers;
 
-class ContainerSetterMock extends AbstractAccessor implements \OvhSwift\Interfaces\API\Setters\ISetContainers
+class ContainerSetterMock extends AbstractAccessor implements ISetContainers
 {
-    public function createContainer(string $name): bool
+    public AccessorResponse $createResponse;
+    public AccessorResponse $deleteResponse;
+
+    public function createContainer(string $name): AccessorResponse
     {
-        // TODO: Implement createContainer() method.
+        return $this->createResponse;
     }
 
-    public function deleteContainer(string $name): bool
+    public function deleteContainer(string $name): AccessorResponse
     {
-        // TODO: Implement deleteContainer() method.
+        return $this->deleteResponse;
     }
 }

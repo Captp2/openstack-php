@@ -55,7 +55,7 @@ class ContainerManager extends AbstractDomain
         }
 
         try {
-            return $this->setter->createContainer($this->authentication, $name);
+            return $this->setter->createContainer($name);
         } catch (\Exception $e) {
             throw new OpenStackException($e->getMessage());
         }
@@ -65,18 +65,18 @@ class ContainerManager extends AbstractDomain
      * @param string $name
      * @return bool
      * @throws OpenStackException
+     * @throws RessourceNotFoundException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function deleteContainer(string $name): bool
     {
-        try {
-            if (!$this->setter->deleteContainer($name)) {
-                throw new RessourceNotFoundException("Container {$name} not found");
+        $response = $this->setter->deleteContainer($name);
+        if (!$response->success) {
+            if (isset($response->errors['404'])) {
+                throw new RessourceNotFoundException($response->errors['404']);
             }
-        } catch (\Exception $e) {
-            if (!$e instanceof RessourceNotFoundException) {
-                throw new OpenStackException($e->getMessage());
-            }
+
+            throw new OpenStackException($response->errors['code']);
         }
 
         return true;
@@ -91,12 +91,14 @@ class ContainerManager extends AbstractDomain
     public function listItems(string $name): array
     {
         try {
-            return $this->getter->listItems($name);
+            $items = $this->getter->listItems($name);
         } catch (\Exception $e) {
             if (!$e instanceof RessourceNotFoundException) {
                 throw new OpenStackException($e->getMessage());
             }
         }
+
+        return $items;
     }
 
     /**

@@ -2,11 +2,11 @@
 
 namespace OvhSwift\Interfaces\API\Setters;
 
-use OvhSwift\Entities\Authentication;
+use OvhSwift\Accessors\AccessorResponse;
 
 Interface ISetContainers
 {
-    public function createContainer(string $name): bool;
+    public function createContainer(string $name): AccessorResponse;
 
-    public function deleteContainer(string $name): bool;
+    public function deleteContainer(string $name): AccessorResponse;
 }
