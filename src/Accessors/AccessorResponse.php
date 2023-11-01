@@ -8,5 +8,6 @@ class AccessorResponse extends App
 {
     public bool $success = true;
 
-    public array $errors = [];
+    public ?string $code = null;
+    public ?string $message = "Unknown error";
 }

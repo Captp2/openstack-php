@@ -3,17 +3,22 @@
 namespace OvhSwift\Tests\Mocks\API\Setters;
 
 use OvhSwift\Accessors\AbstractAccessor;
+use OvhSwift\Accessors\AccessorResponse;
 use OvhSwift\Entities\Authentication;
+use OvhSwift\Interfaces\API\Setters\ISetFiles;
 
-class FileSetterMock extends AbstractAccessor implements \OvhSwift\Interfaces\API\Setters\ISetFiles
+class FileSetterMock extends AbstractAccessor implements ISetFiles
 {
-    public function uploadFile(string $containerName, string $fileName, string $filePath): bool
+    public AccessorResponse $uploadFileResponse;
+    public AccessorResponse $deleteFileResponse;
+
+    public function uploadFile(string $containerName, string $fileName, string $filePath): AccessorResponse
     {
-        // TODO: Implement uploadFile() method.
+        return $this->uploadFileResponse;
     }
 
-    public function deleteFile(string $containerName, string $fileName): bool
+    public function deleteFile(string $containerName, string $fileName): AccessorResponse
     {
-        // TODO: Implement deleteFile() method.
+        return $this->deleteFileResponse;
     }
 }
