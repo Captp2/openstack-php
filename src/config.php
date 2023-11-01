@@ -18,12 +18,12 @@ $dotenv->load();
 return [
     'ovh' => [
         'config' => [
-            'region' => $_ENV['OVH_REGION'],
-            'username' => $_ENV['OVH_USERNAME'],
-            'password' => $_ENV['OVH_PASSWORD'],
-            'project_id' => $_ENV['OVH_PROJECT_ID'],
-            'domain_id' => $_ENV['OVH_DOMAIN'] ?? 'default',
-            'protocol' => $_ENV['OVH_PROTOCOL'] ?? 'swift',
+            'region' => $_ENV['SWIFT_REGION'],
+            'username' => $_ENV['SWIFT_USERNAME'],
+            'password' => $_ENV['SWIFT_PASSWORD'],
+            'project_id' => $_ENV['SWIFT_PROJECT_ID'],
+            'domain_id' => $_ENV['SWIFT_DOMAIN'] ?? 'default',
+            'protocol' => $_ENV['SWIFT_PROVIDER'] ?? 'swift',
             'max_file_size' => $_ENV['MAX_FILE_SIZE'] ?? 262144000
         ],
         'accessors' => [
