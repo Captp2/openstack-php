@@ -72,11 +72,8 @@ class FileManager extends AbstractDomain
     public function deleteFile(string $containerName, string $fileName): bool
     {
         $response = $this->setter->deleteFile($containerName, $fileName);
-        ray($response);
         if (!$response->success) {
-            ray($response->errors);
             if (isset($response->errors['404'])) {
-                ray('yo');
                 throw new RessourceNotFoundException($response->errors['404']);
             }
 
