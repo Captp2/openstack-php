@@ -3,7 +3,6 @@
 namespace OvhSwift\Interfaces\API\Setters;
 
 use OvhSwift\Accessors\AccessorResponse;
-use OvhSwift\Entities\Authentication;
 
 Interface ISetContainers
 {
