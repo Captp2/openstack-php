@@ -1,6 +1,0 @@
-diff --git a/src/tests/Domains/AbstractDomainTester.php b/tests/Domains/AbstractDomainTester.php
-rename from src/tests/Domains/AbstractDomainTester.php
-rename to tests/Domains/AbstractDomainTester.php
-diff --git a/src/tests/Domains/FileManagerTest.php b/tests/Domains/FileManagerTest.php
-rename from src/tests/Domains/FileManagerTest.php
-rename to tests/Domains/FileManagerTest.php
