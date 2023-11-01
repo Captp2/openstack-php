@@ -9,7 +9,6 @@ class ContainerUserMock extends App implements IUseContainers
 {
     public bool $validateContainerName = true;
 
-
     public function validateContainerName(): bool
     {
         return $this->validateContainerName;
