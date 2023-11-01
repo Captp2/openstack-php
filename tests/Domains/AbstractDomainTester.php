@@ -16,12 +16,12 @@ abstract class AbstractDomainTester extends AbstractTester
     protected string $getterClass;
     protected string $setterClass;
 
-    public function getDomain(?object $adapterClass = null)
+    public function getDomain(?object $adapterClass = null, $getterClass = null, $setterClass = null)
     {
         $authentication = (new Authenticator())->login();
         return new $this->domainName($adapterClass,
-            new $this->getterClass(['authentication' => $authentication]),
-            new $this->setterClass(['authentication' => $authentication])
+            $getterClass ?? new $this->getterClass(['authentication' => $authentication]),
+            $setterClass ?? new $this->setterClass(['authentication' => $authentication])
         );
     }
 }

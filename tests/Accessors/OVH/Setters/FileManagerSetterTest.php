@@ -3,6 +3,7 @@
 namespace OvhSwift\Tests\Accessors\OVH\Setters;
 
 use OvhSwift\Accessors\AbstractAccessor;
+use OvhSwift\Accessors\AccessorResponse;
 use OvhSwift\Accessors\OVH\Getters\FileGetter;
 use OvhSwift\Accessors\OVH\Setters\FileSetter;
 use OvhSwift\Entities\File;
@@ -28,11 +29,14 @@ class FileManagerSetterTest extends AbstractAccessorTester
      */
     public function testICanUploadAFile(): void
     {
-        $this->assertTrue($this->accessor->uploadFile(
+        $response = ($this->accessor->uploadFile(
             self::CONTAINER_NAME,
             self::FILE_NAME,
             self::FILE_PATH
         ));
+
+        $this->assertInstanceOf(AccessorResponse::class, $response);
+        $this->assertTrue($response->success);
 
         $file = (new FileGetter(['authentication' => $this->authentication]))->getFileByName(self::CONTAINER_NAME, self::FILE_NAME);
         $this->assertInstanceOf(File::class, $file);
