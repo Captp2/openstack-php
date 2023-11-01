@@ -101,9 +101,14 @@ class ContainerManager extends AbstractDomain
         return $items;
     }
 
+    /**
+     * @param string $name
+     * @return bool
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function exists(string $name): bool
     {
-
+        return $this->getter->containerExists($name);
     }
 
     /**
