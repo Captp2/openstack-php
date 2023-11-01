@@ -2,6 +2,8 @@
 
 namespace OvhSwift\Tests\Domains\File;
 
+use OvhSwift\Domains\AbstractDomain;
+use OvhSwift\Domains\FileManager;
 use OvhSwift\Entities\File;
 use OvhSwift\Exceptions\RessourceValidationException;
 use OvhSwift\Tests\Mocks\SPI\FileUserMock;
@@ -9,6 +11,11 @@ use OvhSwift\Tests\Mocks\SPI\FileUserMock;
 class FileUploadTest extends AbstractFileTester
 {
     private File $file;
+
+    /**
+     * @var FileManager $domain
+     */
+    public AbstractDomain $domain;
 
     public function setUp(): void
     {
@@ -27,7 +34,7 @@ class FileUploadTest extends AbstractFileTester
     public function testICantUploadAFileWithInvalidSize(): void
     {
         $this->expectException(RessourceValidationException::class);
-        $this->getDomain(new FileUserMock(['validateFileSize' => false]))->uploadFile($this->file);
+        $this->getDomain(new FileUserMock(['validateFileSize' => false]))->uploadFile('swift-test', $this->file);
     }
 
     /**
@@ -36,7 +43,7 @@ class FileUploadTest extends AbstractFileTester
     public function testICantUploadAFileWithInvalidFileType(): void
     {
         $this->expectException(RessourceValidationException::class);
-        $this->getDomain(new FileUserMock(['validateFileType' => false]))->uploadFile($this->file);
+        $this->getDomain(new FileUserMock(['validateFileType' => false]))->uploadFile('swift-test', $this->file);
     }
 
     /**
@@ -45,6 +52,6 @@ class FileUploadTest extends AbstractFileTester
     public function testICantUploadAFileWithInvalidFileName(): void
     {
         $this->expectException(RessourceValidationException::class);
-        $this->getDomain(new FileUserMock(['validateFileName' => false]))->uploadFile($this->file);
+        $this->getDomain(new FileUserMock(['validateFileName' => false]))->uploadFile('swift-test', $this->file);
     }
 }
