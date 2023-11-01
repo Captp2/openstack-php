@@ -5,8 +5,8 @@ namespace OvhSwift\Domains;
 use OvhSwift\Accessors\OVH\Setters\FileSetter;
 use OvhSwift\Entities\File;
 use OvhSwift\Exceptions\OpenStackException;
-use OvhSwift\Exceptions\RessourceNotFoundException;
-use OvhSwift\Exceptions\RessourceValidationException;
+use OvhSwift\Exceptions\ResourceNotFoundException;
+use OvhSwift\Exceptions\ResourceValidationException;
 use OvhSwift\Interfaces\API\Getters\IGetFiles;
 use OvhSwift\Interfaces\API\Setters\ISetFiles;
 use OvhSwift\Interfaces\SPI\IUseFiles;
@@ -24,41 +24,51 @@ class FileManager extends AbstractDomain
     protected object $setter;
 
     /**
+     * @param string $containerName
      * @param string $fileName
      * @return mixed
-     * @throws RessourceNotFoundException
+     * @throws ResourceNotFoundException
      */
     public function findByName(string $containerName, string $fileName): File
     {
         if (!$file = $this->getter->getFileByName($containerName, $fileName)) {
-            throw new RessourceNotFoundException("File {$fileName} not found in {$containerName}");
+            throw new ResourceNotFoundException("File {$fileName} not found in {$containerName}");
         }
 
         return $file;
     }
 
     /**
+     * @param string $containerName
      * @param File $file
-     * @return void
-     * @throws RessourceValidationException
+     * @return bool
+     * @throws OpenStackException
+     * @throws ResourceNotFoundException
+     * @throws ResourceValidationException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function uploadFile(string $containerName, File $file): void
+    public function uploadFile(string $containerName, File $file): bool
     {
         if (!$this->spiAdapter->validateFileName($file->name)) {
-            throw new RessourceValidationException("Filename {$file->name} is invalid");
+            throw new ResourceValidationException("Filename {$file->name} is invalid");
         }
         if (!$this->spiAdapter->validateMimeType($file->mimeType)) {
-            throw new RessourceValidationException("Filetype {$file->mimeType} is invalid");
+            throw new ResourceValidationException("Filetype {$file->mimeType} is invalid");
         }
         if (!$this->spiAdapter->validateFileSize($file->size)) {
-            throw new RessourceValidationException("Filesize is invalid");
+            throw new ResourceValidationException("Filesize is invalid");
         }
 
-        try {
-            $this->setter->uploadFile($containerName, $file->name, $file->path);
-        } catch (\Exception $e) {
-            throw new OpenStackException($e->getMessage());
+        $response = $this->setter->deleteFile($containerName, $file->name);
+        if (!$response->success) {
+            if (isset($response->errors['404'])) {
+                throw new ResourceNotFoundException($response->errors['404']);
+            }
+
+            throw new OpenStackException($response->errors['code']);
         }
+
+        return true;
     }
 
     /**
@@ -66,7 +76,7 @@ class FileManager extends AbstractDomain
      * @param string $fileName
      * @return bool
      * @throws OpenStackException
-     * @throws RessourceNotFoundException
+     * @throws ResourceNotFoundException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function deleteFile(string $containerName, string $fileName): bool
@@ -74,7 +84,7 @@ class FileManager extends AbstractDomain
         $response = $this->setter->deleteFile($containerName, $fileName);
         if (!$response->success) {
             if (isset($response->errors['404'])) {
-                throw new RessourceNotFoundException($response->errors['404']);
+                throw new ResourceNotFoundException($response->errors['404']);
             }
 
             throw new OpenStackException($response->errors['code']);

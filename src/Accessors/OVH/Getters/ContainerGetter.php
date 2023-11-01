@@ -6,7 +6,7 @@ use OvhSwift\Accessors\AbstractAccessor;
 use OvhSwift\Entities\Authentication;
 use OvhSwift\Entities\Container;
 use OvhSwift\Entities\File;
-use OvhSwift\Exceptions\RessourceNotFoundException;
+use OvhSwift\Exceptions\ResourceNotFoundException;
 use OvhSwift\Interfaces\API\Getters\IGetContainers;
 use OvhSwift\Traits\Guzzle;
 
@@ -46,7 +46,7 @@ class ContainerGetter extends AbstractAccessor implements IGetContainers
     /**
      * @param string $name
      * @return array|null
-     * @throws RessourceNotFoundException
+     * @throws ResourceNotFoundException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function listItems(string $name): ?array
@@ -62,7 +62,7 @@ class ContainerGetter extends AbstractAccessor implements IGetContainers
             ]);
 
         if($request->getStatusCode() === 404) {
-            throw new RessourceNotFoundException("Container {$name} not found");
+            throw new ResourceNotFoundException("Container {$name} not found");
         }
 
         $containerItems = json_decode($request->getBody()->getContents(), true);

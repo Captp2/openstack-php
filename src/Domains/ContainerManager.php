@@ -6,8 +6,8 @@ use OvhSwift\Accessors\OVH\Getters\ContainerGetter;
 use OvhSwift\Accessors\OVH\Setters\ContainerSetter;
 use OvhSwift\Entities\File;
 use OvhSwift\Exceptions\OpenStackException;
-use OvhSwift\Exceptions\RessourceNotFoundException;
-use OvhSwift\Exceptions\RessourceValidationException;
+use OvhSwift\Exceptions\ResourceNotFoundException;
+use OvhSwift\Exceptions\ResourceValidationException;
 use OvhSwift\Interfaces\API\Getters\IGetContainers;
 use OvhSwift\Interfaces\API\Setters\ISetContainers;
 use OvhSwift\Interfaces\SPI\IUseContainers;
@@ -42,7 +42,7 @@ class ContainerManager extends AbstractDomain
      * @param string $name
      * @return bool
      * @throws OpenStackException
-     * @throws RessourceValidationException
+     * @throws ResourceValidationException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function createContainer(string $name): bool
@@ -51,7 +51,7 @@ class ContainerManager extends AbstractDomain
             throw new OpenStackException("Container name must not be greater than " . File::MAX_NAME_SIZE);
         }
         if (!$this->spiAdapter->validateContainerName($name)) {
-            throw new RessourceValidationException("{$name} is not a valid container name");
+            throw new ResourceValidationException("{$name} is not a valid container name");
         }
 
         try {
@@ -65,7 +65,7 @@ class ContainerManager extends AbstractDomain
      * @param string $name
      * @return bool
      * @throws OpenStackException
-     * @throws RessourceNotFoundException
+     * @throws ResourceNotFoundException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function deleteContainer(string $name): bool
@@ -73,7 +73,7 @@ class ContainerManager extends AbstractDomain
         $response = $this->setter->deleteContainer($name);
         if (!$response->success) {
             if (isset($response->errors['404'])) {
-                throw new RessourceNotFoundException($response->errors['404']);
+                throw new ResourceNotFoundException($response->errors['404']);
             }
 
             throw new OpenStackException($response->errors['code']);
@@ -93,7 +93,7 @@ class ContainerManager extends AbstractDomain
         try {
             $items = $this->getter->listItems($name);
         } catch (\Exception $e) {
-            if (!$e instanceof RessourceNotFoundException) {
+            if (!$e instanceof ResourceNotFoundException) {
                 throw new OpenStackException($e->getMessage());
             }
         }

@@ -7,7 +7,7 @@ use OvhSwift\Accessors\AbstractAccessor;
 use OvhSwift\Accessors\OVH\Getters\ContainerGetter;
 use OvhSwift\Domains\Authenticator;
 use OvhSwift\Entities\File;
-use OvhSwift\Exceptions\RessourceNotFoundException;
+use OvhSwift\Exceptions\ResourceNotFoundException;
 use OvhSwift\Tests\Accessors\AbstractAccessorTester;
 
 class ContainerManagerGetterTest extends AbstractAccessorTester
@@ -53,7 +53,7 @@ class ContainerManagerGetterTest extends AbstractAccessorTester
     public function testICantListItemsFromUnknownContainer()
     {
         $containerName = self::$faker->name(50);
-        $this->expectException(RessourceNotFoundException::class);
+        $this->expectException(ResourceNotFoundException::class);
         $this->expectExceptionMessage("Container {$containerName} not found");
         $this->accessor->listItems($containerName);
     }

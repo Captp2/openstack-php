@@ -4,7 +4,7 @@ namespace OvhSwift\Tests\Domains\Container;
 
 use OvhSwift\Accessors\AccessorResponse;
 use OvhSwift\Domains\ContainerManager;
-use OvhSwift\Exceptions\RessourceNotFoundException;
+use OvhSwift\Exceptions\ResourceNotFoundException;
 use OvhSwift\Tests\Domains\AbstractDomainTester;
 use OvhSwift\Tests\Mocks\API\Getters\ContainerGetterMock;
 use OvhSwift\Tests\Mocks\API\Setters\ContainerSetterMock;
@@ -20,7 +20,7 @@ class ContainerDeletionTest extends AbstractDomainTester
 
     public function testICantDeleteAnUnknownContainer()
     {
-        $this->expectException(RessourceNotFoundException::class);
+        $this->expectException(ResourceNotFoundException::class);
         $this->expectExceptionMessage("Container " . self::TEST_CONTAINER_NAME . "  not found");
         $this->getDomain(new ContainerUserMock(), null, new ContainerSetterMock([
             'deleteResponse' => new AccessorResponse([
