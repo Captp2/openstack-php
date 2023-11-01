@@ -34,9 +34,7 @@ class FileSetter extends AbstractAccessor implements ISetFiles
 
         $statusCode = $request->getStatusCode();
 
-        ray('1');
         if ($createContainer && $statusCode === 404) {
-            ray($containerName);
             (new ContainerSetter(['authentication' => $this->authentication]))->createContainer($containerName);
             return $this->uploadFile($containerName, $fileName, $filePath);
         }

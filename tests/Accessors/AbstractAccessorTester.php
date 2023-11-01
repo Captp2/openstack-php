@@ -19,7 +19,6 @@ class AbstractAccessorTester extends AbstractTester
 
     protected string $accessorClass;
     public AbstractAccessor $accessor;
-    public Authentication $authentication;
 
     /**
      * @return void
@@ -41,10 +40,9 @@ class AbstractAccessorTester extends AbstractTester
         }
     }
 
-    protected function setUp(): void
+    public function setUp(): void
     {
-        parent::setUp();;
-        $this->authentication = (new Authenticator())->login();
+        parent::setUp();
         $this->accessor = new $this->accessorClass(['authentication' => $this->authentication]);
     }
 }

@@ -30,7 +30,7 @@ class ContainerManager extends AbstractDomain
     protected object $setter;
 
     /**
-     * @return array
+     * @return array[Container]
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function listContainers(): array
