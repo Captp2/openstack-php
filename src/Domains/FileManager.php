@@ -69,7 +69,7 @@ class FileManager extends AbstractDomain
      */
     public function deleteFile(string $containerName, string $fileName): bool
     {
-        if (! $this->getter->deleteFile($this->authentication, $containerName, $fileName)) {
+        if (!$this->getter->deleteFile($this->authentication, $containerName, $fileName)) {
             throw new RessourceNotFoundException("File {$fileName} not found in {$containerName}");
         }
 

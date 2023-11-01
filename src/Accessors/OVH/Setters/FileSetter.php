@@ -3,7 +3,6 @@
 namespace OvhSwift\Accessors\OVH\Setters;
 
 use OvhSwift\Accessors\AbstractAccessor;
-use OvhSwift\Entities\Authentication;
 use OvhSwift\Interfaces\API\Setters\ISetFiles;
 use OvhSwift\Traits\Guzzle;
 
