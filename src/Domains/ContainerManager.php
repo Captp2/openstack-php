@@ -101,6 +101,11 @@ class ContainerManager extends AbstractDomain
         return $items;
     }
 
+    public function exists(string $name): bool
+    {
+
+    }
+
     /**
      * @return string
      */

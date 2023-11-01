@@ -10,9 +10,6 @@ use OvhSwift\Tests\Accessors\AbstractAccessorTester;
 
 class FileManagerGetterTest extends AbstractAccessorTester
 {
-    const CONTAINER_NAME = 'swift-test';
-    const FILE_NAME = 'Sidonie.jpg';
-    const FILE_SIZE = 60692;
 
     protected string $accessorClass = FileGetter::class;
 

@@ -50,11 +50,24 @@ class ContainerManagerGetterTest extends AbstractAccessorTester
         $this->assertEquals('image/jpeg', $file->mimeType);
     }
 
-    public function testICantListItemsFromUnknownContainer()
+    /**
+     * @return void
+     * @throws ResourceNotFoundException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testICantListItemsFromUnknownContainer(): void
     {
         $containerName = self::$faker->name(50);
         $this->expectException(ResourceNotFoundException::class);
         $this->expectExceptionMessage("Container {$containerName} not found");
         $this->accessor->listItems($containerName);
+    }
+
+    /**
+     * @return void
+     */
+    public function testICanCheckIfAContainerExists(): void
+    {
+        $this->assertTrue($this->accessor->containerExists(self::CONTAINER_NAME));
     }
 }

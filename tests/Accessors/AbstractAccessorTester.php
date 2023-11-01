@@ -9,6 +9,10 @@ use OvhSwift\Tests\AbstractTester;
 
 class AbstractAccessorTester extends AbstractTester
 {
+    const CONTAINER_NAME = 'swift-test';
+    const FILE_NAME = 'Sidonie.jpg';
+    const FILE_SIZE = 60692;
+
     protected string $accessorClass;
     public AbstractAccessor $accessor;
     public Authentication $authentication;

@@ -79,4 +79,24 @@ class ContainerGetter extends AbstractAccessor implements IGetContainers
 
         return $files;
     }
+
+    /**
+     * @param string $name
+     * @return bool
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function containerExists(string $name): bool
+    {
+        $request = $this->guzzleClient->request(
+            'GET',
+            $this->authentication->swiftUrl . "/" . $name,
+            [
+                'headers' => [
+                    'X-Auth-Token' => $this->authentication->token,
+                    'Accept' => 'application/json'
+                ]
+            ]);
+
+        return !($request->getStatusCode() === 404);
+    }
 }

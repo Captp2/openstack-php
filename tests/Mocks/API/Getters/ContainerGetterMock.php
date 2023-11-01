@@ -3,7 +3,6 @@
 namespace OvhSwift\Tests\Mocks\API\Getters;
 
 use OvhSwift\Accessors\AbstractAccessor;
-use OvhSwift\Entities\Authentication;
 use OvhSwift\Interfaces\API\Getters\IGetContainers;
 
 class ContainerGetterMock extends AbstractAccessor implements IGetContainers
@@ -18,5 +17,10 @@ class ContainerGetterMock extends AbstractAccessor implements IGetContainers
     public function listItems(string $name): array
     {
 
+    }
+
+    public function containerExists(string $name): bool
+    {
+        // TODO: Implement containerExists() method.
     }
 }
