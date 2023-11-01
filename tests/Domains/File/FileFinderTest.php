@@ -3,7 +3,7 @@
 namespace OvhSwift\Tests\Domains\File;
 
 use OvhSwift\Entities\File;
-use OvhSwift\Exceptions\RessourceNotFoundException;
+use OvhSwift\Exceptions\ResourceNotFoundException;
 use OvhSwift\Tests\Domains\AbstractDomainTester;
 use OvhSwift\Tests\Mocks\API\Getters\FileGetterMock;
 use OvhSwift\Tests\Mocks\SPI\FileUserMock;
@@ -27,7 +27,7 @@ class FileFinderTest extends AbstractFileTester
      */
     public function testICantFindAFileByName(): void
     {
-        $this->expectException(RessourceNotFoundException::class);
+        $this->expectException(ResourceNotFoundException::class);
         $this->getDomain(new FileUserMock())->findByName('test', '1234');
     }
 }

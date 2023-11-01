@@ -2,10 +2,13 @@
 
 namespace OvhSwift\Tests\Domains\File;
 
+use OvhSwift\Accessors\AccessorResponse;
 use OvhSwift\Domains\AbstractDomain;
 use OvhSwift\Domains\FileManager;
 use OvhSwift\Entities\File;
-use OvhSwift\Exceptions\RessourceValidationException;
+use OvhSwift\Exceptions\ResourceNotFoundException;
+use OvhSwift\Exceptions\ResourceValidationException;
+use OvhSwift\Tests\Mocks\API\Setters\FileSetterMock;
 use OvhSwift\Tests\Mocks\SPI\FileUserMock;
 
 class FileUploadTest extends AbstractFileTester
@@ -33,7 +36,7 @@ class FileUploadTest extends AbstractFileTester
      */
     public function testICantUploadAFileWithInvalidSize(): void
     {
-        $this->expectException(RessourceValidationException::class);
+        $this->expectException(ResourceValidationException::class);
         $this->getDomain(new FileUserMock(['validateFileSize' => false]))->uploadFile('swift-test', $this->file);
     }
 
@@ -42,7 +45,7 @@ class FileUploadTest extends AbstractFileTester
      */
     public function testICantUploadAFileWithInvalidFileType(): void
     {
-        $this->expectException(RessourceValidationException::class);
+        $this->expectException(ResourceValidationException::class);
         $this->getDomain(new FileUserMock(['validateFileType' => false]))->uploadFile('swift-test', $this->file);
     }
 
@@ -51,7 +54,28 @@ class FileUploadTest extends AbstractFileTester
      */
     public function testICantUploadAFileWithInvalidFileName(): void
     {
-        $this->expectException(RessourceValidationException::class);
+        $this->expectException(ResourceValidationException::class);
         $this->getDomain(new FileUserMock(['validateFileName' => false]))->uploadFile('swift-test', $this->file);
+    }
+
+    /**
+     * @return void
+     */
+    public function testICantUploadAFileToUnknownContainer(): void
+    {
+        $this->expectException(ResourceNotFoundException::class);
+        $this->expectExceptionMessage("Resource not found");
+        $this->getDomain(
+            new FileUserMock(),
+            null,
+            new FileSetterMock([
+                'deleteFileResponse' => new AccessorResponse([
+                    'success' => false,
+                    'errors' => [
+                        '404' => "Resource not found"
+                    ]
+                ])
+            ])
+        )->uploadFile('test-123', $this->file);
     }
 }

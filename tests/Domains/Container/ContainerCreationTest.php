@@ -5,7 +5,7 @@ namespace OvhSwift\Tests\Domains\Container;
 use OvhSwift\Domains\ContainerManager;
 use OvhSwift\Entities\File;
 use OvhSwift\Exceptions\OpenStackException;
-use OvhSwift\Exceptions\RessourceValidationException;
+use OvhSwift\Exceptions\ResourceValidationException;
 use OvhSwift\Tests\Domains\AbstractDomainTester;
 use OvhSwift\Tests\Mocks\API\Getters\ContainerGetterMock;
 use OvhSwift\Tests\Mocks\API\Setters\ContainerSetterMock;
@@ -21,7 +21,7 @@ class ContainerCreationTest extends AbstractDomainTester
 
     public function testICantCreateAnInvalidNamedContainer()
     {
-        $this->expectException(RessourceValidationException::class);
+        $this->expectException(ResourceValidationException::class);
         $this->expectExceptionMessage(self::TEST_CONTAINER_NAME . " is not a valid container name");
         $this->getDomain(new ContainerUserMock(['validateContainerName' => false]))
             ->createContainer(self::TEST_CONTAINER_NAME);
