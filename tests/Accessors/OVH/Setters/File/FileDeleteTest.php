@@ -1,6 +1,6 @@
 <?php
 
-namespace OvhSwift\Tests\Accessors\OVH\Setters;
+namespace OvhSwift\Tests\Accessors\OVH\Setters\File;
 
 use OvhSwift\Accessors\AbstractAccessor;
 use OvhSwift\Accessors\AccessorResponse;
@@ -10,13 +10,13 @@ use OvhSwift\Entities\File;
 use OvhSwift\Interfaces\API\Setters\ISetFiles;
 use OvhSwift\Tests\Accessors\AbstractAccessorTester;
 
-class FileManagerSetterTest extends AbstractAccessorTester
+class FileDeleteTest extends AbstractAccessorTester
 {
     protected string $accessorClass = FileSetter::class;
 
     const CONTAINER_NAME = 'swift-test-2';
     const FILE_NAME = 'Sidonie2.jpg';
-    const FILE_PATH = __DIR__ . '/../../../Utils/Sidonie2.jpg';
+    const FILE_PATH = __DIR__ . '/../../../../Utils/Sidonie2.jpg';
     const MIME_TYPE = 'image/jpeg';
 
     /**
@@ -61,5 +61,21 @@ class FileManagerSetterTest extends AbstractAccessorTester
             self::CONTAINER_NAME,
             self::FILE_NAME)
         );
+    }
+
+    /**
+     * @return void
+     */
+    public function testICantDeleteAFileFromUnknownContainer(): void
+    {
+        $response = $this->accessor->deleteFile(
+            self::$faker->text(25),
+            self::FILE_NAME,
+        );
+
+        $this->assertInstanceOf(AccessorResponse::class, $response);
+        $this->assertFalse($response->success);
+        $this->assertEquals(404, $response->code);
+        $this->assertEquals("Resource not found", $response->message);
     }
 }

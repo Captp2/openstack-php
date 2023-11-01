@@ -37,12 +37,12 @@ class FileDeleteTest extends AbstractFileTester
     {
         $containerName = self::$faker->text(50);
         $this->expectException(RessourceNotFoundException::class);
-        $this->expectExceptionMessage("Container {$containerName} does not exists");
+        $this->expectExceptionMessage("Ressource not found");
         $response = $this->getDomain(new FileUserMock(), null, new FileSetterMock([
             'deleteFileResponse' => new AccessorResponse([
                 'success' => false,
                 'errors' => [
-                    '404' => "Container {$containerName} does not exists"
+                    '404' => "Ressource not found"
                 ]
             ])
         ]))->deleteFile($containerName, self::$faker->text(25));

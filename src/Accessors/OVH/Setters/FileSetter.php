@@ -60,13 +60,15 @@ class FileSetter extends AbstractAccessor implements ISetFiles
             ]);
 
         $response = match ($statusCode = $request->getStatusCode()) {
-            404 => ['success' => false, 'code' => 404, 'message' => "Container {$containerName} does not exists"],
+            404 => ['success' => false, 'code' => 404, 'message' => "Resource not found"],
             204 => [],
             default => ['success' => false, 'errors' => [
                 'code' => $statusCode,
                 'message' => 'Unknown error'
             ]],
         };
+
+        ray($response);
 
         return new AccessorResponse($response);
     }
