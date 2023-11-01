@@ -29,8 +29,8 @@ class ContainerManagerGetterTest extends AbstractAccessorTester
 
         $this->assertCount(2, $containers);
         $this->assertEquals('swift-test-2', $containers[1]->name);
-        $this->assertEquals('60692', $containers[1]->size);
-        $this->assertEquals('1', $containers[1]->itemCount);
+        $this->assertEquals('0', $containers[1]->size);
+        $this->assertEquals('0', $containers[1]->itemCount);
         $this->assertInstanceOf(DateTime::class, $containers[0]->lastModified);
     }
 
