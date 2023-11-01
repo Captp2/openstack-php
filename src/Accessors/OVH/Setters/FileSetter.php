@@ -68,8 +68,6 @@ class FileSetter extends AbstractAccessor implements ISetFiles
             ]],
         };
 
-        ray($response);
-
         return new AccessorResponse($response);
     }
 }
