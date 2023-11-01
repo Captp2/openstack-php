@@ -12,23 +12,10 @@ use OvhSwift\Tests\Mocks\SPI\FileUserMock;
 
 class FileDeleteTest extends AbstractFileTester
 {
-    private File $file;
-
     /**
      * @var FileManager $domain
      */
     public AbstractDomain $domain;
-
-    public function setUp(): void
-    {
-        $this->file = new File([
-            'name' => self::$faker->name(),
-            'path' => self::$faker->filePath(),
-            'mimeType' => self::$faker->mimeType(),
-            'size' => self::$faker->numberBetween(1, 255),
-            'data' => self::$faker->name(),
-        ]);
-    }
 
     /**
      * @return void
@@ -38,7 +25,7 @@ class FileDeleteTest extends AbstractFileTester
         $containerName = self::$faker->text(50);
         $this->expectException(RessourceNotFoundException::class);
         $this->expectExceptionMessage("Ressource not found");
-        $response = $this->getDomain(new FileUserMock(), null, new FileSetterMock([
+        $this->getDomain(new FileUserMock(), null, new FileSetterMock([
             'deleteFileResponse' => new AccessorResponse([
                 'success' => false,
                 'errors' => [
