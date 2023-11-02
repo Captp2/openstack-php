@@ -2,12 +2,7 @@
 
 namespace OvhSwift\Tests\Accessors;
 
-use GuzzleHttp\Exception\ClientException;
 use OvhSwift\Accessors\AbstractAccessor;
-use OvhSwift\Accessors\OVH\Setters\ContainerSetter;
-use OvhSwift\Domains\Authenticator;
-use OvhSwift\Entities\Authentication;
-use OvhSwift\Entities\File;
 use OvhSwift\Tests\AbstractTester;
 
 class AbstractAccessorTester extends AbstractTester
