@@ -3,6 +3,7 @@
 namespace OvhSwift\Tests\Accessors\OVH\Getters;
 
 use OvhSwift\Accessors\AbstractAccessor;
+use OvhSwift\Accessors\OVH\Getters\ContainerGetter;
 use OvhSwift\Accessors\OVH\Getters\FileGetter;
 use OvhSwift\Domains\Authenticator;
 use OvhSwift\Entities\File;

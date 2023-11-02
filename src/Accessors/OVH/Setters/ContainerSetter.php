@@ -42,7 +42,7 @@ class ContainerSetter extends AbstractAccessor implements ISetContainers
      * @return AccessorResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function deleteContainer(string $name): AccessorResponse
+    public function deleteContainer(string $name, bool $forceDelete = false): AccessorResponse
     {
         $request = $this->guzzleClient->request(
             'DELETE',
@@ -60,6 +60,7 @@ class ContainerSetter extends AbstractAccessor implements ISetContainers
                 'code' => $statusCode,
                 'message' => 'Unknown error'
             ]],
+            409 => ['success' => false, 'code' => 409, 'message' => "Container {$name} is not empty"]
         };
 
         return new AccessorResponse($response);

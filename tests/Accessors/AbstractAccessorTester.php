@@ -7,16 +7,11 @@ use OvhSwift\Accessors\AbstractAccessor;
 use OvhSwift\Accessors\OVH\Setters\ContainerSetter;
 use OvhSwift\Domains\Authenticator;
 use OvhSwift\Entities\Authentication;
+use OvhSwift\Entities\File;
 use OvhSwift\Tests\AbstractTester;
 
 class AbstractAccessorTester extends AbstractTester
 {
-    const CONTAINER_NAME = 'swift-test';
-    const FILE_NAME = 'Sidonie.jpg';
-    const FILE_SIZE = 60692;
-
-    protected array $containerNames = [];
-
     protected string $accessorClass;
     public AbstractAccessor $accessor;
 
