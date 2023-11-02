@@ -32,7 +32,6 @@ class ContainerCreateTest extends AbstractAccessorTester
     public function testICanCreateAContainer()
     {
         $containerName = self::getContainerName();
-        $this->containerNames[] = $containerName;
         $containerCreation = $this->accessor->createContainer($containerName);
         $this->assertTrue($containerCreation->success);
 

@@ -16,7 +16,7 @@ class ContainerSetterMock extends AbstractAccessor implements ISetContainers
         return $this->createResponse;
     }
 
-    public function deleteContainer(string $name): AccessorResponse
+    public function deleteContainer(string $name, bool $forceDelete = true): AccessorResponse
     {
         return $this->deleteResponse;
     }

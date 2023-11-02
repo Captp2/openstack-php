@@ -8,5 +8,5 @@ Interface ISetContainers
 {
     public function createContainer(string $name): AccessorResponse;
 
-    public function deleteContainer(string $name): AccessorResponse;
+    public function deleteContainer(string $name, bool $forceDelete = false): AccessorResponse;
 }

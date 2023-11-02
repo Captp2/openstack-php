@@ -27,7 +27,7 @@ $fileManager->uploadFile(
 $fileManager->uploadFile(
     "swift-test-2",
     new File([
-        'name' => ' Sidonie2.jpg',
+        'name' => 'Sidonie2.jpg',
         'path' => __DIR__ . '/Utils/Sidonie2.jpg',
         'mimeType' => 'image/jpeg',
         'size' => 123

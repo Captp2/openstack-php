@@ -68,12 +68,14 @@ class ContainerManager extends AbstractDomain
      * @throws ResourceNotFoundException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function deleteContainer(string $name): bool
+    public function deleteContainer(string $name, bool $forceDelete = false): bool
     {
         $response = $this->setter->deleteContainer($name);
         if (!$response->success) {
             if (isset($response->errors['404'])) {
                 throw new ResourceNotFoundException($response->errors['404']);
+            } elseif (isset($response->errors['409'])) {
+                throw new OpenStackException($response->errors['409']);
             }
 
             throw new OpenStackException($response->errors['code']);

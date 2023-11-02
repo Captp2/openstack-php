@@ -2,11 +2,13 @@
 
 namespace OvhSwift\Tests\Accessors\OVH\Setters\Container;
 
-use GuzzleHttp\Exception\ClientException;
 use OvhSwift\Accessors\AbstractAccessor;
 use OvhSwift\Accessors\AccessorResponse;
 use OvhSwift\Accessors\OVH\Getters\ContainerGetter;
+use OvhSwift\Accessors\OVH\Getters\FileGetter;
 use OvhSwift\Accessors\OVH\Setters\ContainerSetter;
+use OvhSwift\Accessors\OVH\Setters\FileSetter;
+use OvhSwift\Entities\File;
 use OvhSwift\Tests\Accessors\AbstractAccessorTester;
 
 class ContainerDeleteTest extends AbstractAccessorTester
@@ -33,7 +35,6 @@ class ContainerDeleteTest extends AbstractAccessorTester
     public function testICanDeleteAContainer()
     {
         $containerName = self::getContainerName();
-        $this->containerNames[] = $containerName;
         $this->accessor->createContainer($containerName);
         $containerDeletion = $this->accessor->deleteContainer($containerName);
         $this->assertTrue($containerDeletion->success);
@@ -57,5 +58,41 @@ class ContainerDeleteTest extends AbstractAccessorTester
         $this->assertFalse($response->success);
         $this->assertEquals(404, $response->code);
         $this->assertEquals("Container {$containerName} not found", $response->message);
+    }
+
+    /**
+     * @return void
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testICantDeleteAFullContainer(): void
+    {
+        $containerName = self::$faker->text(25);
+        (new FileSetter(['authentication' => $this->authentication]))
+            ->uploadFile($containerName, self::FILE_NAME, self::FILE_PATH, true);
+
+        $response = $this->accessor->deleteContainer($containerName);
+        $this->assertInstanceOf(AccessorResponse::class, $response);
+        $this->assertFalse($response->success);
+        $this->assertEquals(409, $response->code);
+        $this->assertEquals("Container {$containerName} is not empty", $response->message);
+    }
+
+    /**
+     * @return void
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testICanForceDeleteAFullContainer(): void
+    {
+        $containerName = self::$faker->text(25);
+        (new FileSetter(['authentication' => $this->authentication]))
+            ->uploadFile($containerName, self::FILE_NAME, self::FILE_PATH, true);
+
+        $file = (new FileGetter(['authentication' => $this->authentication]))
+            ->getFileByName($containerName, self::FILE_NAME);
+
+        $this->assertInstanceOf(File::class, $file);
+
+        $response = $this->accessor->deleteContainer($containerName, true);
+        $this->assertTrue($response->success);
     }
 }
