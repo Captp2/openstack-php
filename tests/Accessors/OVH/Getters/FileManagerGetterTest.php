@@ -20,8 +20,6 @@ class FileManagerGetterTest extends AbstractAccessorTester
 
     /**
      * @return void
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \OvhSwift\Exceptions\InvalidConfigException
      */
     public function testICanFindAFileByName(): void
     {
@@ -32,5 +30,21 @@ class FileManagerGetterTest extends AbstractAccessorTester
         $this->assertEquals($this->authentication->swiftUrl . "/" . self::CONTAINER_NAME . "/" . self::FILE_NAME, $file->path);
         $this->assertEquals(60692, $file->size);
         $this->assertEquals("image/jpeg", $file->mimeType);
+    }
+
+    /**
+     * @return void
+     */
+    public function testICantFindAFileByNameThatDoesNotExists(): void
+    {
+        $this->assertNull($this->accessor->getFileByName(self::CONTAINER_NAME, self::$faker->text(24)));
+    }
+
+    /**
+     * @return void
+     */
+    public function testICantFindAFileByNameWhoseContainerDoesnt(): void
+    {
+        $this->assertNull($this->accessor->getFileByName(self::CONTAINER_NAME, self::$faker->text(24)));
     }
 }
