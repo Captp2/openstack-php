@@ -4,6 +4,7 @@ namespace OvhSwift\Accessors\OVH\Setters;
 
 use OvhSwift\Accessors\AbstractAccessor;
 use OvhSwift\Accessors\AccessorResponse;
+use OvhSwift\Entities\File;
 use OvhSwift\Interfaces\API\Setters\ISetFiles;
 use OvhSwift\Traits\Guzzle;
 
@@ -39,7 +40,11 @@ class FileSetter extends AbstractAccessor implements ISetFiles
             return $this->uploadFile($containerName, $fileName, $filePath);
         }
 
-        $response = $statusCode === 201 ? [] :
+        $response = $statusCode === 201 ? [
+            'data' => [
+                'path' => $this->authentication->swiftUrl . "/{$containerName}/{$fileName}"
+            ]
+        ] :
             [
                 'success' => false,
                 'code' => $request->getStatusCode(),

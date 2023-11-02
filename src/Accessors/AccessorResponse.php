@@ -10,4 +10,5 @@ class AccessorResponse extends App
 
     public ?string $code = null;
     public ?string $message = "Unknown error";
+    public $data;
 }
