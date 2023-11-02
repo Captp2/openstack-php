@@ -13,7 +13,7 @@ class AbstractTester extends TestCase
     const FILE_SIZE = 60692;
     const CONTAINER_NAME = 'swift-test-2';
     const FILE_NAME = 'Sidonie2.jpg';
-    const FILE_PATH = __DIR__ . '/../Utils/Sidonie2.jpg';
+    const FILE_PATH = __DIR__ . '/Utils/Sidonie2.jpg';
     const MIME_TYPE = 'image/jpeg';
 
     protected static Generator $faker;

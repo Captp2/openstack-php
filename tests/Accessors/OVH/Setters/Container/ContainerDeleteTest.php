@@ -2,13 +2,12 @@
 
 namespace OvhSwift\Tests\Accessors\OVH\Setters\Container;
 
-use GuzzleHttp\Exception\ClientException;
 use OvhSwift\Accessors\AbstractAccessor;
 use OvhSwift\Accessors\AccessorResponse;
 use OvhSwift\Accessors\OVH\Getters\ContainerGetter;
+use OvhSwift\Accessors\OVH\Getters\FileGetter;
 use OvhSwift\Accessors\OVH\Setters\ContainerSetter;
 use OvhSwift\Accessors\OVH\Setters\FileSetter;
-use OvhSwift\Domains\FileManager;
 use OvhSwift\Entities\File;
 use OvhSwift\Tests\Accessors\AbstractAccessorTester;
 
@@ -29,26 +28,26 @@ class ContainerDeleteTest extends AbstractAccessorTester
      */
     public AbstractAccessor $accessor;
 
-//    /**
-//     * @return void
-//     * @throws \GuzzleHttp\Exception\GuzzleException
-//     */
-//    public function testICanDeleteAContainer()
-//    {
-//        $containerName = self::getContainerName();
-//        $this->accessor->createContainer($containerName);
-//        $containerDeletion = $this->accessor->deleteContainer($containerName);
-//        $this->assertTrue($containerDeletion->success);
-//        $containerList = (new ContainerGetter(['authentication' => $this->authentication]))->listContainers();
-//
-//        $containerExists = false;
-//        foreach ($containerList as $container) {
-//            if ($container->name === $containerName) {
-//                $containerExists = true;
-//            }
-//        }
-//        $this->assertFalse($containerExists);
-//    }
+    /**
+     * @return void
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testICanDeleteAContainer()
+    {
+        $containerName = self::getContainerName();
+        $this->accessor->createContainer($containerName);
+        $containerDeletion = $this->accessor->deleteContainer($containerName);
+        $this->assertTrue($containerDeletion->success);
+        $containerList = (new ContainerGetter(['authentication' => $this->authentication]))->listContainers();
+
+        $containerExists = false;
+        foreach ($containerList as $container) {
+            if ($container->name === $containerName) {
+                $containerExists = true;
+            }
+        }
+        $this->assertFalse($containerExists);
+    }
 
     public function testICantDeleteAnUnknownContainer()
     {
@@ -87,6 +86,11 @@ class ContainerDeleteTest extends AbstractAccessorTester
         $containerName = self::$faker->text(25);
         (new FileSetter(['authentication' => $this->authentication]))
             ->uploadFile($containerName, self::FILE_NAME, self::FILE_PATH, true);
+
+        $file = (new FileGetter(['authentication' => $this->authentication]))
+            ->getFileByName($containerName, self::FILE_NAME);
+
+        $this->assertInstanceOf(File::class, $file);
 
         $response = $this->accessor->deleteContainer($containerName, true);
         $this->assertTrue($response->success);

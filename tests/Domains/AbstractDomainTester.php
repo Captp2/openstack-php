@@ -18,7 +18,6 @@ abstract class AbstractDomainTester extends AbstractTester
 
     public function getDomain(?object $adapterClass = null, $getter = null, $setter = null)
     {
-        ray($setter);
         $authentication = (new Authenticator())->login();
         return new $this->domainName($adapterClass,
             $getter ?? new $this->getterClass(['authentication' => $authentication]),

@@ -28,19 +28,19 @@ class ContainerDeletionTest extends AbstractDomainTester
     /**
      * @return void
      */
-//    public function testICantDeleteAnUnknownContainer(): void
-//    {
-//        $this->expectException(ResourceNotFoundException::class);
-//        $this->expectExceptionMessage("Container " . self::TEST_CONTAINER_NAME . "  not found");
-//        $this->getDomain(new ContainerUserMock(), null, new ContainerSetterMock([
-//            'deleteResponse' => new AccessorResponse([
-//                'success' => false,
-//                'errors' => [
-//                    '404' => "Container " . self::TEST_CONTAINER_NAME . "  not found"
-//                ]
-//            ])
-//        ]))->deleteContainer(self::TEST_CONTAINER_NAME);
-//    }
+    public function testICantDeleteAnUnknownContainer(): void
+    {
+        $this->expectException(ResourceNotFoundException::class);
+        $this->expectExceptionMessage("Container " . self::TEST_CONTAINER_NAME . "  not found");
+        $this->getDomain(new ContainerUserMock(), null, new ContainerSetterMock([
+            'deleteResponse' => new AccessorResponse([
+                'success' => false,
+                'errors' => [
+                    '404' => "Container " . self::TEST_CONTAINER_NAME . "  not found"
+                ]
+            ])
+        ]))->deleteContainer(self::TEST_CONTAINER_NAME);
+    }
 
     /**
      * @return void
@@ -57,5 +57,17 @@ class ContainerDeletionTest extends AbstractDomainTester
                 ]
             ])
         ]))->deleteContainer(self::CONTAINER_NAME);
+    }
+
+    /**
+     * @return void
+     */
+    public function testICanForceDeleteAFullContainer(): void
+    {
+        $this->assertTrue($this->getDomain(new ContainerUserMock(), null, new ContainerSetterMock([
+            'deleteResponse' => new AccessorResponse([
+                'success' => true
+            ])
+        ]))->deleteContainer(self::CONTAINER_NAME, true));
     }
 }
