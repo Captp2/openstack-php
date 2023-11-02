@@ -20,26 +20,6 @@ class AbstractAccessorTester extends AbstractTester
     protected string $accessorClass;
     public AbstractAccessor $accessor;
 
-    /**
-     * @return void
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function tearDown(): void
-    {
-        if(!empty($this->containerNames)) {
-            $containerSetter = (new ContainerSetter(['authentication' => $this->authentication]));
-            foreach ($this->containerNames as $containerName) {
-                try {
-                    $containerSetter->deleteContainer($containerName);
-                } catch (ClientException $e) {
-                    if (!$e->getCode() == 404) {
-                        throw $e;
-                    }
-                }
-            }
-        }
-    }
-
     public function setUp(): void
     {
         parent::setUp();

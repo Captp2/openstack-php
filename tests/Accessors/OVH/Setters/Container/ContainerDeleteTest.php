@@ -22,23 +22,6 @@ class ContainerDeleteTest extends AbstractAccessorTester
     }
 
     /**
-     * @return void
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function tearDown(): void
-    {
-        foreach ($this->containerNames as $containerName) {
-            try {
-                $this->accessor->deleteContainer($containerName);
-            } catch (ClientException $e) {
-                if (!$e->getCode() == 404) {
-                    throw $e;
-                }
-            }
-        }
-    }
-
-    /**
      * @var ContainerSetter $accessor
      */
     public AbstractAccessor $accessor;

@@ -20,8 +20,6 @@ class ContainerCreateTest extends AbstractAccessorTester
         return self::$faker->text(50);
     }
 
-
-
     /**
      * @var ContainerSetter $accessor
      */
