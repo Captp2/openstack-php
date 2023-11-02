@@ -1,5 +1,8 @@
 name: Tests
 
+env:
+  ENV_PATH: ./
+
 on:
   pull_request:
     branches: [ master ]
