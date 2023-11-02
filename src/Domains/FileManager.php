@@ -48,7 +48,7 @@ class FileManager extends AbstractDomain
      * @throws ResourceValidationException
      * @throws GuzzleException
      */
-    public function uploadFile(string $containerName, File $file, $createContainer = false): bool
+    public function uploadFile(string $containerName, File $file, $createContainer = false): string
     {
         if (!$this->spiAdapter->validateFileName($file->name)) {
             throw new ResourceValidationException("Filename {$file->name} is invalid");
@@ -69,7 +69,7 @@ class FileManager extends AbstractDomain
             throw new OpenStackException($response->errors['code']);
         }
 
-        return true;
+        return $response->data['path'];
     }
 
     /**
