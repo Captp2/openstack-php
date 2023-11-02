@@ -1,8 +1,9 @@
 name: Tests
 
+env:
+  ENV_PATH: ./
+
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -19,6 +20,9 @@ jobs:
           php-version: '8.1'
           extensions: mbstring, xml, ctype, iconv, intl, json, pdo_sqlite
           coverage: none
+
+      - name: Setup .env
+        run: echo "${{ secrets.DOTENV }}" | base64 --decode > .env
 
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress --no-suggest --no-interaction
