@@ -5,6 +5,10 @@ Allow basic operations with OVH Swift Object Storage
 
 Environment variable giving the '.env' path, using the key 'ENV_PATH'
 
+# Installation
+
+`composer require captp/ovh-swift`
+
 # Env example and explainations
 
 ```
