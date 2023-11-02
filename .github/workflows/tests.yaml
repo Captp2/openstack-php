@@ -1,7 +1,7 @@
 name: Tests
 
 env:
-  ENV_PATH= ./
+  ENV_PATH: ./
 
 on:
   pull_request:
