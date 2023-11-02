@@ -1,5 +1,8 @@
 name: Tests
 
+env:
+  ENV_PATH=./
+
 on:
   push:
     branches: [ master ]
