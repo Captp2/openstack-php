@@ -37,6 +37,10 @@ class FileUploadTest extends AbstractAccessorTester
 
         $this->assertInstanceOf(AccessorResponse::class, $response);
         $this->assertTrue($response->success);
+        $this->assertEquals(
+            $this->authentication->swiftUrl . "/" . self::CONTAINER_NAME . "/" . self::FILE_NAME,
+            $response->data['path']
+        );
 
         $file = (new FileGetter(['authentication' => $this->authentication]))->getFileByName(self::CONTAINER_NAME, self::FILE_NAME);
         $this->assertInstanceOf(File::class, $file);
