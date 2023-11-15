@@ -11,6 +11,7 @@ use OvhSwift\Exceptions\ResourceValidationException;
 use OvhSwift\Interfaces\API\Getters\IGetFiles;
 use OvhSwift\Interfaces\API\Setters\ISetFiles;
 use OvhSwift\Interfaces\SPI\IUseFiles;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class FileManager extends AbstractDomain
 {

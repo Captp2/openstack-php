@@ -2,6 +2,7 @@
 
 namespace OvhSwift\Domains;
 
+use OvhSwift\Accessors\AccessorResponse;
 use OvhSwift\Accessors\OVH\Getters\ContainerGetter;
 use OvhSwift\Accessors\OVH\Setters\ContainerSetter;
 use OvhSwift\Entities\File;
@@ -45,7 +46,7 @@ class ContainerManager extends AbstractDomain
      * @throws ResourceValidationException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function createContainer(string $name): bool
+    public function createContainer(string $name): AccessorResponse
     {
         if (strlen($name) >= File::MAX_NAME_SIZE) {
             throw new OpenStackException("Container name must not be greater than " . File::MAX_NAME_SIZE);

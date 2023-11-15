@@ -10,4 +10,5 @@ class File extends AbstractEntity
     public string $path;
     public string $mimeType;
     public int $size;
+    public $data;
 }

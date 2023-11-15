@@ -11,6 +11,7 @@ class FileGetter extends AbstractAccessor implements IGetFiles
 {
     public function getFileByName(string $containerName, string $fileName): ?File
     {
+
         $request = $this->guzzleClient->request(
             'GET',
             $this->authentication->swiftUrl . "/{$containerName}",
@@ -24,11 +25,21 @@ class FileGetter extends AbstractAccessor implements IGetFiles
         $files = json_decode($request->getBody()->getContents(), true);
         foreach ($files as $file) {
             if ($file['name'] === $fileName) {
+                $fileData = $this->guzzleClient->request(
+                    'GET',
+                    $this->authentication->swiftUrl . "/{$containerName}/" . $fileName,
+                    [
+                        'headers' => [
+                            'X-Auth-Token' => $this->authentication->token,
+                            'Accept' => '*/*'
+                        ]
+                    ])->getBody();
                 return new File([
                     'name' => $file['name'],
                     'path' => $this->authentication->swiftUrl . "/{$containerName}/" . $fileName,
                     'mimeType' => $file['content_type'],
-                    'size'     => $file['bytes']
+                    'size' => $file['bytes'],
+                    'data' => $fileData,
                 ]);
             }
         }
