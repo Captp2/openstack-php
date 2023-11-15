@@ -11,7 +11,6 @@ class FileGetter extends AbstractAccessor implements IGetFiles
 {
     public function getFileByName(string $containerName, string $fileName): ?File
     {
-
         $request = $this->guzzleClient->request(
             'GET',
             $this->authentication->swiftUrl . "/{$containerName}",
