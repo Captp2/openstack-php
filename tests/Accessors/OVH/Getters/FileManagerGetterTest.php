@@ -9,7 +9,6 @@ use OvhSwift\Tests\Accessors\AbstractAccessorTester;
 
 class FileManagerGetterTest extends AbstractAccessorTester
 {
-
     protected string $accessorClass = FileGetter::class;
 
     /**
